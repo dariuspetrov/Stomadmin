@@ -5,12 +5,10 @@
     <body>
         <script type="text/javascript">
             $(document).ready(function(){
-                $("#msgid").html("This is Hello World by JQuery");
+                $("#msgid").html("Hello World!");
+                $('#msgid').fadeIn('Slow');
             });
         </script>
-
-            This is Hello World by HTML
-
         <div id="msgid">
         </div>
     </body>
