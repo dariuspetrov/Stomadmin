@@ -1,5 +1,8 @@
 {
     "autoload":{
         "classmap" : ["src/","lib/"]
+    },
+    "require":{
+        "components/jquery": "3.3.*"
     }
 }
