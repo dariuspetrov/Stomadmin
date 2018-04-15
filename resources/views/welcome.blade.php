@@ -12,7 +12,7 @@
     <body>
         @include('layouts.nav')
         <div class="flex-center position-ref full-height">
-            <div class="content">
+            <div class="content index-background">
                 <h1>Welcome page.</h1>
             </div>
         </div>
