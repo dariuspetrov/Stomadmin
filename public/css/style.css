@@ -1,0 +1,12 @@
+body{
+}
+
+.navbar{
+    height: 8vh !important;
+    color: white;
+}
+
+.navbar a, .navbar a:hover{
+    color: white;
+    /* text-decoration: none */
+}

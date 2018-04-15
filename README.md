@@ -1,6 +1,2 @@
 # Stomadmin 
-A dental clinic management system
-
-## About
-* Written in PHP
-* MySQL database for storing data
+A dental clinic management system written using the Laravel PHP framework.
