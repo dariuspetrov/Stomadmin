@@ -6,9 +6,9 @@ body{
     color: white;
 }
 
-.navbar a, .navbar a:hover{
-    color: white;
-    /* text-decoration: none */
+.navbar li{
+    margin-right: 5vw;
+    list-style-type: none !important;
 }
 
 .index-background{
@@ -16,4 +16,16 @@ body{
     background: url('../img/background.jpg');
     background-size: cover;
     background-repeat: no-repeat;
+}
+
+/* login */
+.panel{
+    padding: 1vw;
+    border: 1px solid black;
+    border-radius: 10px;
+    margin-top: 5vh;
+}
+
+.panel h3{
+    margin-left: 2vh;
 }
