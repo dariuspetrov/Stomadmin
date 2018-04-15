@@ -12,8 +12,12 @@
     <body>
         @include('layouts.nav')
         <div class="flex-center position-ref full-height">
-            <div class="content index-background">
-                <h1>Welcome page.</h1>
+            <div class="container-fluid index-background">
+                <div class="row">
+                    <div class="welcome-content">
+                        <h1>Stomadmin</h1>
+                    </div>
+                </div>
             </div>
         </div>
     </body>
