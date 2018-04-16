@@ -12,6 +12,9 @@
 */
 
 Route::get('/', function () {
+    if(Auth::check()){
+        return view('home');
+    }
     return view('welcome');
 });
 
@@ -19,4 +22,6 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/secretary', 'SecretaryController@show')->name('secretarycontrolpanel');
+Route::get('/admin', 'DisplayController@showAdminPanel')->name('admincontrolpannel');
+Route::get('/secretary', 'DisplayController@showSecretaryPanel')->name('secretarycontrolpanel');
+Route::get('/doctor', 'DisplayController@showDoctorPanel')->name('doctorcontrolpanel');
