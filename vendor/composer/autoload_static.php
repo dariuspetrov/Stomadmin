@@ -2946,6 +2946,7 @@ class ComposerStaticInit9964e1b17837bd349e7f6547939582f6
         'Stomadmin\\Http\\Controllers\\Auth\\ResetPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ResetPasswordController.php',
         'Stomadmin\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'Stomadmin\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
+        'Stomadmin\\Http\\Controllers\\SecretaryController' => __DIR__ . '/../..' . '/app/Http/Controllers/SecretaryController.php',
         'Stomadmin\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'Stomadmin\\Http\\Middleware\\EncryptCookies' => __DIR__ . '/../..' . '/app/Http/Middleware/EncryptCookies.php',
         'Stomadmin\\Http\\Middleware\\RedirectIfAuthenticated' => __DIR__ . '/../..' . '/app/Http/Middleware/RedirectIfAuthenticated.php',

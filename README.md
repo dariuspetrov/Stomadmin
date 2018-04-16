@@ -10,3 +10,4 @@ After installing, in order to populate the users table, there's a seeder class c
 
 ``php artisan db:seed --class="UsersTableSeeder"``
 
+## Permissions

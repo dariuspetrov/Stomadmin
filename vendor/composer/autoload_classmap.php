@@ -2644,6 +2644,7 @@ return array(
     'Stomadmin\\Http\\Controllers\\Auth\\ResetPasswordController' => $baseDir . '/app/Http/Controllers/Auth/ResetPasswordController.php',
     'Stomadmin\\Http\\Controllers\\Controller' => $baseDir . '/app/Http/Controllers/Controller.php',
     'Stomadmin\\Http\\Controllers\\HomeController' => $baseDir . '/app/Http/Controllers/HomeController.php',
+    'Stomadmin\\Http\\Controllers\\SecretaryController' => $baseDir . '/app/Http/Controllers/SecretaryController.php',
     'Stomadmin\\Http\\Kernel' => $baseDir . '/app/Http/Kernel.php',
     'Stomadmin\\Http\\Middleware\\EncryptCookies' => $baseDir . '/app/Http/Middleware/EncryptCookies.php',
     'Stomadmin\\Http\\Middleware\\RedirectIfAuthenticated' => $baseDir . '/app/Http/Middleware/RedirectIfAuthenticated.php',
