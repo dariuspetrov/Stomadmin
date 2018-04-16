@@ -12,8 +12,7 @@ class DisplayController extends Controller
     private $secretaryRoleNr = 1;
     private $userRoleNr = 0;
 
-    public function showAdminPanel()
-    {
+    public function showAdminPanel(){
         if(Auth::user()->role == $this->adminRoleNr){
             return view('admin.controlpanel');
         }
@@ -22,8 +21,7 @@ class DisplayController extends Controller
         }
     }
 
-    public function showSecretaryPanel()
-    {
+    public function showSecretaryPanel(){
         if(Auth::user()->role == $this->secretaryRoleNr){
             return view('secretary.controlpanel');
         }
@@ -32,8 +30,7 @@ class DisplayController extends Controller
         }
     }
 
-    public function showDoctorPanel()
-    {
+    public function showDoctorPanel(){
         if(Auth::user()->role == $this->doctorRoleNr){
             return view('doctor.controlpanel');
         }

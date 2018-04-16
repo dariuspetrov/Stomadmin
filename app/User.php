@@ -26,4 +26,22 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function getRoleName(){
+        switch($this->role){
+            case 3:
+                return 'Admin';
+                break;
+            case 2:
+                return 'Doctor';
+                break;
+            case 1:
+                return 'Secretary';
+                break;
+            case 0:
+                return 'User';
+                break;
+            break;
+        }
+    }
 }
