@@ -11,4 +11,9 @@ class Admin extends Model
     public function adminable(){
         return $this->morphTo();
     }
+
+    public function viewUsers(){
+        $user = new User;
+        echo $user::all();
+    }
 }

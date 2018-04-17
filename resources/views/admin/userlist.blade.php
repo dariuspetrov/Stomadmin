@@ -5,10 +5,9 @@
         <div class="row">
             <div class="col-md-10 offset-md-1">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Admin panel</div>
+                    <div class="panel-heading">Users list</div>
                     <hr>
                     <div class="panel-body">
-                        {{ Auth::user()->admin()->create()->viewUsers() }}
                     </div>
                 </div>
             </div>
