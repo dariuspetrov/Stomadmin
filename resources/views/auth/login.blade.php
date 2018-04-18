@@ -8,10 +8,7 @@
         <div class="col-md-6 offset-md-3">
 
             <div class="panel panel-default">
-		
-        
                 <h3>Login</h3><br>
-
                 <div class="panel-body">
                     <form class="form-horizontal" method="POST" action="{{ route('login') }}">
                         {{ csrf_field() }}
