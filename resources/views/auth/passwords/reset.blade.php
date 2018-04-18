@@ -1,9 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
+<div class="container-fluid index-background2">
 <div class="container">
     <div class="row">
-        <div class="col-md-8 col-md-offset-2">
+        <div class="col-md-8 offset-2">
             <div class="panel panel-default">
                 <div class="panel-heading">Reset Password</div>
 
@@ -59,6 +60,7 @@
                                 <button type="submit" class="btn btn-primary">
                                     Reset Password
                                 </button>
+</div>
                             </div>
                         </div>
                     </form>
