@@ -22,7 +22,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/admin', 'DisplayController@showAdminPanel')->name('admincontrolpannel');
+Route::get('/admin', 'AdminController@showAdminPanel')->name('admincontrolpannel');
 Route::get('/admin/viewuser/{userid}', 'AdminController@viewSingleUser');
 Route::get('/admin/viewusers', 'AdminController@viewUsersData');
 

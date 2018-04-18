@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-md-10 offset-md-1">
             <div class="panel panel-default">
-                <div class="panel-heading">{{ Auth::user()->role }}Dashboard</div>
+                <div class="panel-heading">Dashboard</div>
                 <hr>
                 <div class="panel-body">
                     @if (session('status'))
@@ -13,7 +13,7 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    You are logged in!
+                    You are logged in!,
                 </div>
             </div>
         </div>

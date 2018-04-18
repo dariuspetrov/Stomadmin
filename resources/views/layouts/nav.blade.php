@@ -5,7 +5,7 @@
             @if (Route::has('login'))
                 @auth
                 <li class="dropdown">
-                    Howdy, <a href="#" class="text-white dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
+                    <a href="#" class="text-white dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
                         {{ Auth::user()->name }} <span class="caret"></span>
                     </a>
 
