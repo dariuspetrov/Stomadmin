@@ -2640,6 +2640,7 @@ return array(
     'Stomadmin\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'Stomadmin\\Doctor' => $baseDir . '/app/Doctor.php',
     'Stomadmin\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
+    'Stomadmin\\Http\\Controllers\\AdminController' => $baseDir . '/app/Http/Controllers/AdminController.php',
     'Stomadmin\\Http\\Controllers\\Auth\\ForgotPasswordController' => $baseDir . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
     'Stomadmin\\Http\\Controllers\\Auth\\LoginController' => $baseDir . '/app/Http/Controllers/Auth/LoginController.php',
     'Stomadmin\\Http\\Controllers\\Auth\\RegisterController' => $baseDir . '/app/Http/Controllers/Auth/RegisterController.php',

@@ -2942,6 +2942,7 @@ class ComposerStaticInit9964e1b17837bd349e7f6547939582f6
         'Stomadmin\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'Stomadmin\\Doctor' => __DIR__ . '/../..' . '/app/Doctor.php',
         'Stomadmin\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
+        'Stomadmin\\Http\\Controllers\\AdminController' => __DIR__ . '/../..' . '/app/Http/Controllers/AdminController.php',
         'Stomadmin\\Http\\Controllers\\Auth\\ForgotPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
         'Stomadmin\\Http\\Controllers\\Auth\\LoginController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/LoginController.php',
         'Stomadmin\\Http\\Controllers\\Auth\\RegisterController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/RegisterController.php',

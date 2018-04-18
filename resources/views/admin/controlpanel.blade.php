@@ -8,7 +8,6 @@
                     <div class="panel-heading">Admin panel</div>
                     <hr>
                     <div class="panel-body">
-                        {{ Auth::user()->admin()->create()->viewUsers() }}
                     </div>
                 </div>
             </div>
