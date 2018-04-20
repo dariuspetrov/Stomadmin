@@ -23,7 +23,8 @@ class AdminController extends Controller
     public function viewUsersData(){
         if(Gate::allows('view-users')){
             $user = new \Stomadmin\User;
-            echo $user::all();
+            return view('admin.userlist')->with('usersdata', $user::all());
+            //echo $user::all();
         }
         else
             echo 'Not allowed';

@@ -5,9 +5,34 @@
         <div class="row">
             <div class="col-md-10 offset-md-1">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Users list</div>
-                    <hr>
+                    <div class="panel-heading">
+                        <p class="float-left">Users list</p>
+                        <p class="float-right"><a href="{{ URL::previous() }}">Back</a></p>
+                    </div>
+                    <br>
                     <div class="panel-body">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">id</th>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Email</th>
+                                    <th scope="col">Role</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach($usersdata as $user)
+                                    <tr>
+                                        <td><a href="{{ url('admin/viewuser').'/'.$user->id }}">{{$user->id}}</a></td>
+                                        <td>{{$user->name}}</td>
+                                        <td>{{$user->email}}</td>
+                                        <td>{{$user->getRoleName()}}</td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+
+
                     </div>
                 </div>
             </div>

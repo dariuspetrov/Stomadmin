@@ -56,3 +56,15 @@ margin-left: 15%;
     padding: 1.5vw;
 }
 
+.panel-item-image{
+    background-color: black;
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+    border-radius: 100%;
+}
+
+.panel-item{
+    text-decoration: none;
+    color: black;
+}
