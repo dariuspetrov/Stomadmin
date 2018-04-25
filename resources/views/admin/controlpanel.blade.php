@@ -7,14 +7,24 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">Admin panel - {{ Auth::user()->name }}</div>
                     <hr>
+                    <br>
                     <div class="panel-body">
-                        <a href="{{ url('/admin/viewusers') }}" >
+                        <div class="row">
                             <div class="col-md-3 panel-item">
-                                <div class="panel-item-image"></div>
-                                <hr>
-                                <h3 class="text-center">View users</h3>
+                                <a href="{{ url('/admin/viewusers') }}" >
+                                    <div class="panel-item-image"></div>
+                                    <hr>
+                                    <h3 class="text-center">View users</h3>
+                                </a>
                             </div>
-                        </a>
+                            <div class="col-md-3 panel-item">
+                                <a href="{{ url('/admin/add-user') }}" >
+                                    <div class="panel-item-image"></div>
+                                    <hr>
+                                    <h3 class="text-center">Add users</h3>
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -38,4 +38,14 @@ class AdminController extends Controller
             return back();
         }
     }
+
+    public function showCreateUserPanel(){
+        if(Gate::allows('view-create-user-panel')){
+            return view('admin.usercreation');
+        }
+        else{
+            return back();
+        }
+    }
+
 }

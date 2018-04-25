@@ -21,16 +21,13 @@ body{
     background-repeat: no-repeat;
 }
 
-
 /* login */
 .panel{
     padding:1vw;
     border-radius: 10px;
     margin-top: 5vh;
-border: 1px solid black;
+    border: 1px solid black;
 	background-color:white;
-
-
 }
 
 .index-background2{
@@ -40,8 +37,9 @@ border: 1px solid black;
 }
 
 .panel-central{
-margin-left: 15%;
+    margin-left: 15%;
 }
+
 .panel h3{
     margin-left: 2vh;
 }
@@ -64,7 +62,7 @@ margin-left: 15%;
     border-radius: 100%;
 }
 
-.panel-item{
+.panel-item a{
     text-decoration: none;
     color: black;
 }
