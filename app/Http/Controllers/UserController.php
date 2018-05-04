@@ -66,6 +66,9 @@ class UserController extends Controller
 
             return redirect('/');
         }
+        else{
+            return response()->view('errors.403');
+        }
     }
 
     /**
@@ -81,7 +84,7 @@ class UserController extends Controller
             echo $user::find($id);
         }
         else{
-            echo 'Not allowed';
+            return response()->view('errors.403');
         }
 
     }
