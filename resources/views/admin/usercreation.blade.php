@@ -11,7 +11,7 @@
                     </div>
                     <br> <hr>
                     <div class="col-md-8 offset-md-2">
-                        <form method="POST" action="/admin/user/create">
+                        <form method="POST" action="/user/create">
                             {{ csrf_field() }}
                             <br>
                             <div class="form-group">

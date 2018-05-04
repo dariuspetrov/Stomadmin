@@ -3,10 +3,23 @@
 namespace Stomadmin\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 use Stomadmin\User;
 
 class UserController extends Controller
 {
+    public function __construct(){
+        $this->middleware('auth');
+    }
+
+    public function showUserPanel(){
+        if(Gate::allows('view-user-panel')){
+            return view('user.controlpanel');
+        }
+        else{
+            return back();
+        }
+    }
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +27,13 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+        if(Gate::allows('view-users')){
+            $user = new User;
+            return view('admin.userlist')->with('usersdata', $user::all());
+            //echo $user::all();
+        }
+        else
+            echo 'Not allowed';
     }
 
     /**
@@ -35,16 +54,18 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $user = new User();
+        if(Gate::allows('store-user')){
+            $user = new User();
 
-        $user->email = request('email');
-        $user->name = request('name');
-        $user->password = bcrypt(request('password'));
-        $user->role = request('role');
+            $user->email = request('email');
+            $user->name = request('name');
+            $user->password = bcrypt(request('password'));
+            $user->role = request('role');
 
-        $user->save();
+            $user->save();
 
-        return redirect('/');
+            return redirect('/');
+        }
     }
 
     /**
@@ -55,7 +76,14 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+        if(Gate::allows('view-user')){
+            $user = new User;
+            echo $user::find($id);
+        }
+        else{
+            echo 'Not allowed';
+        }
+
     }
 
     /**

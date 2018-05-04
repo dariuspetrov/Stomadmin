@@ -1,3 +1,18 @@
+@switch(Auth::user()->role)
+    @case(3)
+        <script>window.location = "/admin";</script>
+    @break
+    @case(2)
+        <script>window.location = "/doctor";</script>
+    @break
+    @case(1)
+        <script>window.location = "/secretary";</script>
+    @break
+    @case(0)
+        <script>window.location = "/user";</script>
+    @break
+@endswitch
+
 @extends('layouts.app')
 
 @section('content')

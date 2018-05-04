@@ -64,4 +64,11 @@ class User extends Authenticatable
         else
             return false;
     }
+
+    public function isUser(){
+        if($this->role == 0)
+            return true;
+        else
+            return false;
+    }
 }

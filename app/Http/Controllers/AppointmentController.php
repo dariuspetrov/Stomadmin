@@ -4,6 +4,7 @@ namespace Stomadmin\Http\Controllers;
 
 use Stomadmin\Appointment;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 class AppointmentController extends Controller
 {
@@ -14,8 +15,13 @@ class AppointmentController extends Controller
      */
     public function index()
     {
-        $appointment = new \Stomadmin\Appointment();
-        return $appointment->all();
+        if(Gate::allows('view-appointments')){
+            $appointment = new \Stomadmin\Appointment();
+            return $appointment->all();
+        }
+        else{
+            return response()->view('errors.403');
+        }
     }
 
     /**
@@ -36,7 +42,8 @@ class AppointmentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $appointment = new Stomadmin\Appointment();
+
     }
 
     /**
