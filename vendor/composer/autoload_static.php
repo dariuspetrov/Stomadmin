@@ -308,6 +308,7 @@ class ComposerStaticInit9964e1b17837bd349e7f6547939582f6
     );
 
     public static $classMap = array (
+        'AppointmentsTableSeeder' => __DIR__ . '/../..' . '/database/seeds/AppointmentsTableSeeder.php',
         'ArithmeticError' => __DIR__ . '/..' . '/symfony/polyfill-php70/Resources/stubs/ArithmeticError.php',
         'AssertionError' => __DIR__ . '/..' . '/symfony/polyfill-php70/Resources/stubs/AssertionError.php',
         'Carbon\\Carbon' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Carbon.php',
@@ -2938,9 +2939,8 @@ class ComposerStaticInit9964e1b17837bd349e7f6547939582f6
         'SebastianBergmann\\ResourceOperations\\ResourceOperations' => __DIR__ . '/..' . '/sebastian/resource-operations/src/ResourceOperations.php',
         'SebastianBergmann\\Version' => __DIR__ . '/..' . '/sebastian/version/src/Version.php',
         'SessionUpdateTimestampHandlerInterface' => __DIR__ . '/..' . '/symfony/polyfill-php70/Resources/stubs/SessionUpdateTimestampHandlerInterface.php',
-        'Stomadmin\\Admin' => __DIR__ . '/../..' . '/app/Admin.php',
+        'Stomadmin\\Appointment' => __DIR__ . '/../..' . '/app/Appointment.php',
         'Stomadmin\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
-        'Stomadmin\\Doctor' => __DIR__ . '/../..' . '/app/Doctor.php',
         'Stomadmin\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
         'Stomadmin\\Http\\Controllers\\AdminController' => __DIR__ . '/../..' . '/app/Http/Controllers/AdminController.php',
         'Stomadmin\\Http\\Controllers\\Auth\\ForgotPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
@@ -2962,7 +2962,6 @@ class ComposerStaticInit9964e1b17837bd349e7f6547939582f6
         'Stomadmin\\Providers\\BroadcastServiceProvider' => __DIR__ . '/../..' . '/app/Providers/BroadcastServiceProvider.php',
         'Stomadmin\\Providers\\EventServiceProvider' => __DIR__ . '/../..' . '/app/Providers/EventServiceProvider.php',
         'Stomadmin\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/app/Providers/RouteServiceProvider.php',
-        'Stomadmin\\Secretary' => __DIR__ . '/../..' . '/app/Secretary.php',
         'Stomadmin\\User' => __DIR__ . '/../..' . '/app/User.php',
         'Symfony\\Component\\Console\\Application' => __DIR__ . '/..' . '/symfony/console/Application.php',
         'Symfony\\Component\\Console\\CommandLoader\\CommandLoaderInterface' => __DIR__ . '/..' . '/symfony/console/CommandLoader/CommandLoaderInterface.php',

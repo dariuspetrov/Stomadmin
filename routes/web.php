@@ -27,6 +27,9 @@ Route::get('/admin/viewusers', 'AdminController@viewUsersData');
 Route::get('/admin/add-user', 'AdminController@showCreateUserPanel');
 Route::post('/admin/user/create', 'UserController@store');
 
+Route::get('/admin/appointments', 'AppointmentController@index');
+Route::get('/admin/appointment/{appointmentid}', 'AppointmentController@show');
+
 Route::get('/secretary', 'DisplayController@showSecretaryPanel')->name('secretarycontrolpanel');
 Route::get('/doctor', 'DisplayController@showDoctorPanel')->name('doctorcontrolpanel');
 Route::get('/user', 'DisplayController@showDoctorPanel');
