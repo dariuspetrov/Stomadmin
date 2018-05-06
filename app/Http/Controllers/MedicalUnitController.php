@@ -2,11 +2,11 @@
 
 namespace Stomadmin\Http\Controllers;
 
-use Stomadmin\Appointment;
+use Stomadmin\MedicalUnit;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 
-class AppointmentController extends Controller
+class MedicalUnitController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +15,9 @@ class AppointmentController extends Controller
      */
     public function index()
     {
-        if(Gate::allows('view-appointments')){
-            $appointment = new Appointment();
-            return $appointment->all();
+        if(Gate::allows('view-medical-units')){
+            $unit = new MedicalUnit();
+            return $unit->all();
         }
         else{
             return response()->view('errors.403');
@@ -42,28 +42,27 @@ class AppointmentController extends Controller
      */
     public function store(Request $request)
     {
-        $appointment = new Appointment();
-
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \Stomadmin\Appointment  $appointment
+     * @param  \Stomadmin\MedicalUnit  $medicalUnit
      * @return \Illuminate\Http\Response
      */
-    public function show(Appointment $appointment,$appointmentid)
+    public function show(MedicalUnit $medicalUnit, $medicalunitid)
     {
-        return $appointment->where('appointment_id','=',$appointmentid)->get();
+        return $medicalUnit->where('unit_id','=',$medicalunitid)->get();
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \Stomadmin\Appointment  $appointment
+     * @param  \Stomadmin\MedicalUnit  $medicalUnit
      * @return \Illuminate\Http\Response
      */
-    public function edit(Appointment $appointment)
+    public function edit(MedicalUnit $medicalUnit)
     {
         //
     }
@@ -72,10 +71,10 @@ class AppointmentController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \Stomadmin\Appointment  $appointment
+     * @param  \Stomadmin\MedicalUnit  $medicalUnit
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Appointment $appointment)
+    public function update(Request $request, MedicalUnit $medicalUnit)
     {
         //
     }
@@ -83,10 +82,10 @@ class AppointmentController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \Stomadmin\Appointment  $appointment
+     * @param  \Stomadmin\MedicalUnit  $medicalUnit
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Appointment $appointment)
+    public function destroy(MedicalUnit $medicalUnit)
     {
         //
     }

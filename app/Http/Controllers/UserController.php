@@ -2,9 +2,9 @@
 
 namespace Stomadmin\Http\Controllers;
 
+use Stomadmin\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
-use Stomadmin\User;
 
 class UserController extends Controller
 {

@@ -33,6 +33,10 @@ Route::get('/appointments', 'AppointmentController@index');
 Route::get('/appointment/{appointmentid}', 'AppointmentController@show');
 Route::get('/appointments/create', 'AppointmentController@create');
 
+Route::get('/medicalunits', 'MedicalUnitController@index');
+Route::get('/medicalunit/{medicalunitid}', 'MedicalUnitController@show');
+Route::post('/user/create', 'MedicalUnitController@store');
+
 Route::get('/secretary', 'SecretaryController@showSecretaryPanel')->name('secretarycontrolpanel');
 Route::get('/doctor', 'DoctorController@showDoctorPanel')->name('doctorcontrolpanel');
 Route::get('/user', 'UserController@showUserPanel');

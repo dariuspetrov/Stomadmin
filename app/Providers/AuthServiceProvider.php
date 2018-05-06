@@ -57,5 +57,23 @@ class AuthServiceProvider extends ServiceProvider
                 return false;
             }
         });
+
+        Gate::define('view-medical-units', function($user){
+            if($user->isAdmin() || $user->isSecretary() || $user->isDoctor()){
+                return true;
+            }
+            else{
+                return false;
+            }
+        });
+
+        Gate::define('view-medical-unit', function($user){
+            if($user->isAdmin() || $user->isSecretary() || $user->isDoctor()){
+                return true;
+            }
+            else{
+                return false;
+            }
+        });
     }
 }
