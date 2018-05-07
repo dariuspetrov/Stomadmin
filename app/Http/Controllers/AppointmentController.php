@@ -31,7 +31,12 @@ class AppointmentController extends Controller
      */
     public function create()
     {
-        //
+        return view('appointment.create');
+        if(Gate::allows('view-create-appointment-panel')){
+        }
+        else{
+            return back();
+        }
     }
 
     /**

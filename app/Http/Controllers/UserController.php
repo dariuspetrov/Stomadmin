@@ -36,7 +36,7 @@ class UserController extends Controller
             return view('admin.userlist')->with('usersdata', $user::all());
         }
         else
-            echo 'Not allowed';
+            return response()->view('errors.404');
     }
 
     /**
@@ -107,7 +107,12 @@ class UserController extends Controller
     {
         if(Gate::allows('edit-user')){
             $user = User::find($id);
-            return view('admin.edituser')->with('user', $user);
+            if($user != null){
+                return view('admin.edituser')->with('user', $user);
+            }
+            else{
+                return view('errors.404');
+            }
         }
         else{
             return back();
@@ -152,6 +157,6 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        //to be implemented remove a user from DB
     }
 }

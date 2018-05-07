@@ -17,7 +17,7 @@ class MedicalUnitController extends Controller
     {
         if(Gate::allows('view-medical-units')){
             $unit = new MedicalUnit();
-            return $unit->all();
+            return view('medicalunit.medicalunits')->with('units', $unit::all());
         }
         else{
             return response()->view('errors.403');
@@ -31,7 +31,7 @@ class MedicalUnitController extends Controller
      */
     public function create()
     {
-        //
+        return view('medicalunits.create');
     }
 
     /**
@@ -42,7 +42,20 @@ class MedicalUnitController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        if(Gate::allows('store-medicalunit')){
+            $unit = new MedicalUnit();
+
+            $unit->name = request('name');
+            $unit->address = request('address');
+            $unit->phone = request('phone');
+
+            $unit->save();
+
+            return Redirect::to('medicalunits');
+        }
+        else{
+            return response()->view('errors.403');
+        }
     }
 
     /**
