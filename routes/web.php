@@ -22,20 +22,22 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/admin', 'AdminController@showAdminPanel')->name('admincontrolpannel');
-Route::get('/admin/add-user', 'AdminController@showCreateUserPanel');
+//Route::get('/admin/add-user', 'AdminController@showCreateUserPanel');
 
 
 Route::get('/users', 'UserController@index');
 Route::get('/user/{userid}', 'UserController@show');
-Route::post('/user/create', 'UserController@store');
+Route::get('/users/create', 'UserController@create');
+Route::get('/user/edit/{userid}', 'UserController@edit');
+Route::post('/user/update/{userid}', 'UserController@update');
 
-Route::get('/appointments', 'AppointmentController@index');
+Route::resource('/appointments', 'AppointmentController');
 Route::get('/appointment/{appointmentid}', 'AppointmentController@show');
 Route::get('/appointments/create', 'AppointmentController@create');
 
-Route::get('/medicalunits', 'MedicalUnitController@index');
+Route::resource('/medicalunits', 'MedicalUnitController');
 Route::get('/medicalunit/{medicalunitid}', 'MedicalUnitController@show');
-Route::post('/user/create', 'MedicalUnitController@store');
+Route::post('/medicalunit/create', 'MedicalUnitController@create');
 
 Route::get('/secretary', 'SecretaryController@showSecretaryPanel')->name('secretarycontrolpanel');
 Route::get('/doctor', 'DoctorController@showDoctorPanel')->name('doctorcontrolpanel');

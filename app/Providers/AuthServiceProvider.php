@@ -41,6 +41,10 @@ class AuthServiceProvider extends ServiceProvider
             return $user->isAdmin();
         });
 
+        Gate::define('edit-user', function($user){
+            return $user->isAdmin();
+        });
+
         Gate::define('view-admin-panel', function($user){
             return $user->isAdmin();
         });

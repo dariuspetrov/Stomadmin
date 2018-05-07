@@ -5,6 +5,10 @@ namespace Stomadmin\Http\Controllers;
 use Stomadmin\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Input;
+use Session;
+use Redirect;
+use Validator;
 
 class UserController extends Controller
 {
@@ -30,7 +34,6 @@ class UserController extends Controller
         if(Gate::allows('view-users')){
             $user = new User;
             return view('admin.userlist')->with('usersdata', $user::all());
-            //echo $user::all();
         }
         else
             echo 'Not allowed';
@@ -43,7 +46,12 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        if(Gate::allows('view-create-user-panel')){
+            return view('admin.usercreation');
+        }
+        else{
+            return back();
+        }
     }
 
     /**
@@ -64,7 +72,7 @@ class UserController extends Controller
 
             $user->save();
 
-            return redirect('/');
+            return Redirect::to('users');
         }
         else{
             return response()->view('errors.403');
@@ -97,7 +105,13 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        if(Gate::allows('edit-user')){
+            $user = User::find($id);
+            return view('admin.edituser')->with('user', $user);
+        }
+        else{
+            return back();
+        }
     }
 
     /**
@@ -109,7 +123,25 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $rules = array(
+            'name'       => 'required',
+            'email'      => 'required|email'
+        );
+
+        $validator = Validator::make(Input::all(), $rules);
+
+        if ($validator->fails()) {
+            return Redirect::to("user/edit/$id")->withErrors($validator)->withInput(Input::except('password'));
+        }
+        else {
+            $user = User::find($id);
+            $user->name       = Input::get('name');
+            $user->email      = Input::get('email');
+            $user->role       = Input::get('role');
+            $user->save();
+
+            return Redirect::to('users');
+        }
     }
 
     /**
