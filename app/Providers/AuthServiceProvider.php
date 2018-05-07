@@ -62,6 +62,10 @@ class AuthServiceProvider extends ServiceProvider
             }
         });
 
+        Gate::define('edit-appointment', function($user){
+            return $user->isAdmin();
+        });
+
         Gate::define('view-medical-units', function($user){
             if($user->isAdmin() || $user->isSecretary() || $user->isDoctor()){
                 return true;

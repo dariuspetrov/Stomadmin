@@ -107,6 +107,7 @@ class UserController extends Controller
     {
         if(Gate::allows('edit-user')){
             $user = User::find($id);
+
             if($user != null){
                 return view('admin.edituser')->with('user', $user);
             }

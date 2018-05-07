@@ -11,13 +11,33 @@
                     </div>
                     <br> <hr>
                     <div class="col-md-8 offset-md-2">
-                        <form method="POST" action="/user/create">
+                        <form method="POST" action="/appointment/store">
                             {{ csrf_field() }}
-                            <button type="submit" class="btn btn-success pull-right">Submit</button>
-                        </form>
+                            <div class="form-group">
+                                <label for="sel1">Select list:</label>
+                                <select class="form-control" name="doctor_name">
+                                    @foreach($doctors as $doctor)
+                                        <option>{{ $doctor->name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                    <div class="form-group">
+                        <label for="date">Date:</label>
+                        <input id="date" type="date" name="date">
                     </div>
+                    <div class="form-group">
+                        <label for="time">Time:</label>
+                        <input id="time" type="time" name="time">
+                    </div>
+                    <input type="hidden" name="pacient_id" value="{{ Auth::user()->id }}">
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-success pull-right">Submit</button>
+                    </div>
+                        </form>
                 </div>
             </div>
         </div>
+    </div>
+    </div>
     </div>
 @stop
