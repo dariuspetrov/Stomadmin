@@ -10,6 +10,7 @@ use Stomadmin\User;
 use Redirect;
 use Session;
 use Validator;
+use Carbon\Carbon;
 
 class AppointmentController extends Controller
 {
@@ -122,12 +123,11 @@ class AppointmentController extends Controller
         else {
             $doctor = new User;
 
-            $appointment = Appointment::where('appointment_id', '=', $id);
+            $appointment = Appointment::where('appointment_id', '=', $id)->first();
             $appointment->doctor_id = $doctor->where('name', '=', Input::get('doctor_name'))->first()->id;
-            $appointment->date = Input::get('date').Input::get('time');
+            $appointment->date = new Carbon(Input::get('date').Input::get('time'));
 
-            dd($appointment);
-            //$appointment->save();
+            $appointment->save();
 
             return Redirect::to('appointments');
         }
