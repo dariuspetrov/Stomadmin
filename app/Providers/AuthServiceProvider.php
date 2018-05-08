@@ -83,5 +83,13 @@ class AuthServiceProvider extends ServiceProvider
                 return false;
             }
         });
+
+        Gate::define('store-unit', function($user){
+            return $user->isAdmin();
+        });
+
+        Gate::define('edit-unit', function($user){
+            return $user->isAdmin();
+        });
     }
 }

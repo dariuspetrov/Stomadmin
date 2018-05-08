@@ -45,9 +45,10 @@ Route::post('/appointment/store', 'AppointmentController@store');
 // Medical units routes
 Route::resource('/medicalunits', 'MedicalUnitController');
 Route::get('/medicalunit/{medicalunitid}', 'MedicalUnitController@show');
-Route::post('/medicalunit/create', 'MedicalUnitController@create');
+Route::get('/medicalunit/create', 'MedicalUnitController@create');
 Route::get('/medicalunit/edit/{medicalunitid}', 'MedicalUnitController@edit');
 Route::post('/medicalunit/update/{medicalunitid}', 'MedicalUnitController@update');
+Route::post('/medicalunit/store', 'MedicalUnitController@store');
 
 
 Route::get('/secretary', 'SecretaryController@showSecretaryPanel')->name('secretarycontrolpanel');
