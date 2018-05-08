@@ -24,7 +24,7 @@
                             <tbody>
                                 @foreach($usersdata as $user)
                                     <tr>
-                                        <td><a href="{{ url('admin/viewuser').'/'.$user->id }}">{{$user->id}}</a></td>
+                                        <td><a href="{{ url('user').'/'.$user->id }}">{{$user->id}}</a></td>
                                         <td>{{$user->name}}</td>
                                         <td>{{$user->email}}</td>
                                         <td>{{$user->getRoleName()}}</td>

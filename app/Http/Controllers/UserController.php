@@ -33,7 +33,7 @@ class UserController extends Controller
     {
         if(Gate::allows('view-users')){
             $user = new User;
-            return view('admin.userlist')->with('usersdata', $user::all());
+            return view('user.users')->with('usersdata', $user::all());
         }
         else
             return response()->view('errors.404');
@@ -47,7 +47,7 @@ class UserController extends Controller
     public function create()
     {
         if(Gate::allows('view-create-user-panel')){
-            return view('admin.usercreation');
+            return view('user.create');
         }
         else{
             return back();
@@ -109,7 +109,7 @@ class UserController extends Controller
             $user = User::find($id);
 
             if($user != null){
-                return view('admin.edituser')->with('user', $user);
+                return view('user.edit')->with('user', $user);
             }
             else{
                 return view('errors.404');
@@ -131,7 +131,9 @@ class UserController extends Controller
     {
         $rules = array(
             'name'       => 'required',
-            'email'      => 'required|email'
+            'email'      => 'required|email',
+            'password'   => 'required|string',
+            'role'       => 'required'
         );
 
         $validator = Validator::make(Input::all(), $rules);

@@ -69,7 +69,7 @@ class AppointmentController extends Controller
      * @param  \Stomadmin\Appointment  $appointment
      * @return \Illuminate\Http\Response
      */
-    public function show(Appointment $appointment,$appointmentid)
+    public function show(Appointment $appointment, $appointmentid)
     {
         return $appointment->where('appointment_id','=',$appointmentid)->get();
     }
