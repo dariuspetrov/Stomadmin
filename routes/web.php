@@ -37,13 +37,7 @@ Route::post('/user/update/{userid}', 'UserController@update');
 Route::post('/user/store', 'UserController@store');
 
 // Appointment routes
-// Route::resource('/appointments', 'AppointmentController');
-Route::get('/appointments', 'AppointmentController@index');
-Route::get('/appointment/{appointmentid}', 'AppointmentController@show');
-Route::get('/appointments/create', 'AppointmentController@create');
-Route::get('/appointment/edit/{appointmentid}', 'AppointmentController@edit');
-Route::post('/appointment/update/{appointmentid}', 'AppointmentController@update');
-Route::post('/appointment/store', 'AppointmentController@store');
+Route::resource('/appointments', 'AppointmentController');
 
 // Medical units routes
 // Route::resource('/medicalunits', 'MedicalUnitController');
