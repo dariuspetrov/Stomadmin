@@ -19,9 +19,37 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/admin', 'DisplayController@showAdminPanel')->name('admincontrolpannel');
-Route::get('/secretary', 'DisplayController@showSecretaryPanel')->name('secretarycontrolpanel');
-Route::get('/doctor', 'DisplayController@showDoctorPanel')->name('doctorcontrolpanel');
+Route::get('/admin', 'AdminController@showAdminPanel')->name('admincontrolpannel');
+//Route::get('/admin/add-user', 'AdminController@showCreateUserPanel');
+
+
+// User routes
+//Route::resource('/users', 'UserController');
+Route::get('/users', 'UserController@index');
+Route::get('/user/{userid}', 'UserController@show');
+Route::get('/users/create', 'UserController@create');
+Route::get('/user/edit/{userid}', 'UserController@edit');
+Route::post('/user/update/{userid}', 'UserController@update');
+Route::post('/user/store', 'UserController@store');
+
+// Appointment routes
+Route::resource('/appointments', 'AppointmentController');
+Route::get('/appointment/{appointmentid}', 'AppointmentController@show');
+Route::get('/appointments/create', 'AppointmentController@create');
+Route::get('/appointment/edit/{appointmentid}', 'AppointmentController@edit');
+Route::post('/appointment/update/{appointmentid}', 'AppointmentController@update');
+Route::post('/appointment/store', 'AppointmentController@store');
+
+// Medical units routes
+Route::resource('/medicalunits', 'MedicalUnitController');
+Route::get('/medicalunit/{medicalunitid}', 'MedicalUnitController@show');
+Route::post('/medicalunit/create', 'MedicalUnitController@create');
+Route::get('/medicalunit/edit/{medicalunitid}', 'MedicalUnitController@edit');
+Route::post('/medicalunit/update/{medicalunitid}', 'MedicalUnitController@update');
+
+
+Route::get('/secretary', 'SecretaryController@showSecretaryPanel')->name('secretarycontrolpanel');
+Route::get('/doctor', 'DoctorController@showDoctorPanel')->name('doctorcontrolpanel');
+Route::get('/user', 'UserController@showUserPanel');

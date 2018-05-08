@@ -16,11 +16,8 @@
             <div class="container-fluid index-background">
                 <div class="row">
                     <div class="welcome-content">
-                        <h1>Stomadmin</h1>
-				<p>
-					Bine ati venit pe platforma Stomadmin. La noi veti avea parte de cele mai bune servicii in domeniul stomatologic la cel mai mic pret posibil. În perspectiva noastra profesionalismul este cheia succesului.
-				</p>
-	
+                        <h1><b>Stomadmin</b></h1><hr>
+                        <p> Bine ați venit pe platforma Stomadmin! La noi veți beneficia de cele mai bune servicii în domeniul stomatologic, la cel mai mic preț posibil! În perspectiva noastră profesionalismul este cheia succesului. </p>
                     </div>
                 </div>
             </div>

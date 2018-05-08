@@ -1,4 +1,7 @@
 body{
+    font-family: Raleway, Arial, sans-serif !important;
+    font-weight: 700 !important;
+    font-size: 11pt !important;
 }
 
 .navbar{
@@ -18,31 +21,27 @@ body{
     background-repeat: no-repeat;
 }
 
-
 /* login */
 .panel{
     padding:1vw;
     border-radius: 10px;
     margin-top: 5vh;
-border: 1px solid black;
+    border: 1px solid black;
 	background-color:white;
-
-
 }
 
 .index-background2{
     height: 92vh;
     background: url('../img/bgd_chair.jpg');
     background-size: cover;
-    
 }
 
 .panel-central{
-margin-left: 15%;
+    margin-left: 15%;
 }
+
 .panel h3{
     margin-left: 2vh;
-	
 }
 
 /* welcome page */
@@ -53,4 +52,17 @@ margin-left: 15%;
     margin-top: 5vh;
     border: 1px solid black;
     padding: 1.5vw;
+}
+
+.panel-item-image{
+    background-color: black;
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+    border-radius: 100%;
+}
+
+.panel-item a{
+    text-decoration: none;
+    color: black;
 }

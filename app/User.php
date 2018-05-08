@@ -27,32 +27,48 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    /* Polymorphic relationships */
-
-    public function admin(){
-        if($this->role == 3){
-            return $this->morphMany(Admin::class, 'adminable');
-        }
-        else{
-            echo 'User does not have admin privilleges!';
-        }
-    }
-
-    public function doctor(){
-        if($this->role == 2){
-            return $this->morphMany(Doctor::class, 'doctorable');
-        }
-        else{
-            echo 'User does not have doctor privilleges!';
+    public function getRoleName(){
+        switch($this->role){
+            case 3:
+                return 'Admin';
+                break;
+            case 2:
+                return 'Doctor';
+                break;
+            case 1:
+                return 'Secretary';
+                break;
+            case 0:
+                return 'User';
+                break;
         }
     }
 
-    public function secretary(){
-        if($this->role == 1){
-            return $this->morphMany(Secretary::class, 'secretaryable');
-        }
-        else{
-            echo 'User does not have secretary privilleges!';
-        }
+    public function isAdmin(){
+        if($this->role == 3)
+            return true;
+        else
+            return false;
+    }
+
+    public function isDoctor(){
+        if($this->role == 2)
+            return true;
+        else
+            return false;
+    }
+
+    public function isSecretary(){
+        if($this->role == 1)
+            return true;
+        else
+            return false;
+    }
+
+    public function isUser(){
+        if($this->role == 0)
+            return true;
+        else
+            return false;
     }
 }

@@ -12,15 +12,6 @@ class DisplayController extends Controller
     private $secretaryRoleNr = 1;
     private $userRoleNr = 0;
 
-    public function showAdminPanel(){
-        if(Auth::user()->role == $this->adminRoleNr){
-            return view('admin.controlpanel');
-        }
-        else{
-            return back();
-        }
-    }
-
     public function showSecretaryPanel(){
         if(Auth::user()->role == $this->secretaryRoleNr){
             return view('secretary.controlpanel');
