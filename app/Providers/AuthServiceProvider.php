@@ -49,6 +49,14 @@ class AuthServiceProvider extends ServiceProvider
             return $user->isAdmin();
         });
 
+        Gate::define('view-secretary-panel', function($user){
+            return $user->isSecretary();
+        });
+
+        Gate::define('view-doctor-panel', function($user){
+            return $user->isDoctor();
+        });
+
         Gate::define('view-user-panel', function($user){
             return $user->isUser();
         });
@@ -82,6 +90,14 @@ class AuthServiceProvider extends ServiceProvider
             else{
                 return false;
             }
+        });
+
+        Gate::define('store-unit', function($user){
+            return $user->isAdmin();
+        });
+
+        Gate::define('edit-unit', function($user){
+            return $user->isAdmin();
         });
     }
 }

@@ -5,6 +5,9 @@ namespace Stomadmin\Http\Controllers;
 use Stomadmin\MedicalUnit;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Input;
+use Redirect;
+use Validator;
 
 class MedicalUnitController extends Controller
 {
@@ -31,7 +34,7 @@ class MedicalUnitController extends Controller
      */
     public function create()
     {
-        return view('medicalunits.create');
+        return view('medicalunit.create');
     }
 
     /**
@@ -42,19 +45,32 @@ class MedicalUnitController extends Controller
      */
     public function store(Request $request)
     {
-        if(Gate::allows('store-medicalunit')){
-            $unit = new MedicalUnit();
+        $rules = array(
+            'name'       => 'required|string',
+            'address'    => 'required|string',
+            'phone'      => 'required|string'
+        );
 
-            $unit->name = request('name');
-            $unit->address = request('address');
-            $unit->phone = request('phone');
+        $validator = Validator::make(Input::all(), $rules);
 
-            $unit->save();
-
-            return Redirect::to('medicalunits');
+        if ($validator->fails()) {
+            return Redirect::to("/medicalunits/create")->withErrors($validator)->withInput(Input::except('password'));
         }
-        else{
-            return response()->view('errors.403');
+        else {
+            if(Gate::allows('store-unit')){
+                $unit = new MedicalUnit();
+
+                $unit->name = request('name');
+                $unit->address = request('address');
+                $unit->phone = request('phone');
+
+                $unit->save();
+
+                return Redirect::to('medicalunits');
+            }
+            else{
+                return response()->view('errors.403');
+            }
         }
     }
 
@@ -75,9 +91,21 @@ class MedicalUnitController extends Controller
      * @param  \Stomadmin\MedicalUnit  $medicalUnit
      * @return \Illuminate\Http\Response
      */
-    public function edit(MedicalUnit $medicalUnit)
+    public function edit($id)
     {
-        //
+        if(Gate::allows('edit-unit')){
+            $unit = MedicalUnit::find($id);
+
+            if($unit = null){
+                return view('medicalunit.edit')->with($unit, 'unit');
+            }
+            else{
+                return view('errors.404');
+            }
+        }
+        else{
+            return back();
+        }
     }
 
     /**
