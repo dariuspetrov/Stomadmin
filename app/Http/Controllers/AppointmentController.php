@@ -50,17 +50,30 @@ class AppointmentController extends Controller
      */
     public function store(Request $request)
     {
-        $doctor = new User;
-        $appointment = new Appointment();
+        $rules = array(
+            'doctor_name' => 'required',
+            'date'      => 'required',
+            'time'      => 'required'
+        );
 
-        $appointment->doctor_id = $doctor::where('name', '=', request('doctor_name'))->get()->first()->id;
-        $appointment->pacient_id = request('pacient_id');
-        $appointment->date = request('date').request('time');
-        $appointment->cancelled = 0;
+        $validator = Validator::make(Input::all(), $rules);
 
-        $appointment->save();
+        if ($validator->fails()) {
+            return Redirect::to("appointments/create")->withErrors($validator);
+        }
+        else{
+            $doctor = new User;
+            $appointment = new Appointment();
 
-        return Redirect::to('appointments');
+            $appointment->doctor_id = $doctor::where('name', '=', request('doctor_name'))->get()->first()->id;
+            $appointment->pacient_id = request('pacient_id');
+            $appointment->date = new Carbon(Input::get('date').Input::get('time'));
+            $appointment->cancelled = 0;
+
+            $appointment->save();
+
+            return Redirect::to('appointments');
+        }
     }
 
     /**
@@ -118,7 +131,7 @@ class AppointmentController extends Controller
         $validator = Validator::make(Input::all(), $rules);
 
         if ($validator->fails()) {
-            return Redirect::to("appointment/edit/$id")->withErrors($validator)->withInput(Input::except('password'));
+            return Redirect::to("appointment/edit/$id")->withErrors($validator);
         }
         else {
             $doctor = new User;

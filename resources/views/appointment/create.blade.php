@@ -21,23 +21,24 @@
                                     @endforeach
                                 </select>
                             </div>
-                    <div class="form-group">
-                        <label for="date">Date:</label>
-                        <input id="date" type="date" name="date">
-                    </div>
-                    <div class="form-group">
-                        <label for="time">Time:</label>
-                        <input id="time" type="time" name="time">
-                    </div>
-                    <input type="hidden" name="pacient_id" value="{{ Auth::user()->id }}">
-                    <div class="form-group">
-                        <button type="submit" class="btn btn-success pull-right">Submit</button>
-                    </div>
+                            <div class="form-group">
+                                <label for="date">Date:</label>
+                                <input id="date" type="date" name="date">
+                            </div>
+                            <div class="form-group">
+                                <label for="time">Time:</label>
+                                <input id="time" type="time" name="time">
+                            </div>
+                            <input type="hidden" name="pacient_id" value="{{ Auth::user()->id }}">
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-success pull-right">Submit</button>
+                            </div>
+                            @include ('layouts.errorsdisplay')
                         </form>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
     </div>
     </div>
 @stop
