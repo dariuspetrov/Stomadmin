@@ -39,9 +39,27 @@
                                 </a>
                             </div>
                         </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-md-3 panel-item">
+                                <a href="{{ url('/medicalunits') }}" >
+                                    <div class="panel-item-image"></div>
+                                    <hr>
+                                    <h3 class="text-center">View Medical Units</h3>
+                                </a>
+                            </div>
+                            <div class="col-md-3 panel-item">
+                                <a href="{{ url('/medicalunits/create') }}" >
+                                    <div class="panel-item-image"></div>
+                                    <hr>
+                                    <h3 class="text-center">Create Medical Units</h3>
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
     </div>
 @stop

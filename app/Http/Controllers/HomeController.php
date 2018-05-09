@@ -3,6 +3,7 @@
 namespace Stomadmin\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Auth;
 
 class HomeController extends Controller
 {
@@ -23,6 +24,21 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        if(Auth::user()->isAdmin()){
+            return view('admin.controlpanel');
+        }
+
+        if(Auth::user()->isSecretary()){
+            return view('secretary.controlpanel');
+        }
+
+        if(Auth::user()->isDoctor()){
+            return view('doctor.controlpanel');
+        }
+
+        if(Auth::user()->isUser()){
+            return view('user.controlpanel');
+        }
+        // return view('home');
     }
 }

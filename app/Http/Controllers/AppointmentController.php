@@ -154,8 +154,11 @@ class AppointmentController extends Controller
      * @param  \Stomadmin\Appointment  $appointment
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Appointment $appointment)
+    public function destroy($id)
     {
-        //
+        $appointment = Appointment::find($id);
+        $appointment->delete();
+
+        return Redirect::to('appointments');
     }
 }

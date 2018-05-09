@@ -186,6 +186,7 @@ class UserController extends Controller
 
         try {
             $user->delete();
+            return Redirect::to('users');
         }
         catch (\Exception $e) {
             return view('errors.userappointed');

@@ -33,7 +33,7 @@
                                         <td>{{$appointment->date}}</td>
                                         <td><a href="{{ url('appointment').'/'.$appointment->appointment_id.'/edit' }}">Edit</a></td>
 
-                                        <td><form method="POST" action="/medicalunits/{{ $appointment->appointment_id }}">
+                                        <td><form method="POST" action="/appointments/{{ $appointment->appointment_id }}">
                                             <input type="hidden" name="_method" value="DELETE">
                                             {{ csrf_field() }}
                                             <button>Delete</button>
@@ -42,8 +42,6 @@
                                 @endforeach
                             </tbody>
                         </table>
-
-
                     </div>
                 </div>
             </div>
