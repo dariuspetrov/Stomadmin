@@ -27,16 +27,7 @@ Route::get('/doctor', 'DoctorController@showDoctorPanel')->name('doctorcontrolpa
 Route::get('/user', 'UserController@showUserPanel');
 //Route::get('/admin/add-user', 'AdminController@showCreateUserPanel');
 
-// User routes
-//Route::resource('/users', 'UserController');
-Route::get('/users', 'UserController@index');
-Route::get('/user/{userid}', 'UserController@show');
-Route::get('/users/create', 'UserController@create');
-Route::get('/user/edit/{userid}', 'UserController@edit');
-Route::post('/user/update/{userid}', 'UserController@update');
-Route::post('/user/store', 'UserController@store');
-
-// Appointment routes
+Route::resource('/users', 'UserController');
 Route::resource('/appointments', 'AppointmentController');
 
 // Medical units routes
