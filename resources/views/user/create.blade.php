@@ -34,6 +34,7 @@
                             <br>
                             <button type="submit" class="btn btn-success pull-right">Submit</button>
                         </form>
+                        @include('layouts.errorsdisplay')
                     </div>
                 </div>
             </div>

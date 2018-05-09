@@ -131,7 +131,7 @@ class AppointmentController extends Controller
         $validator = Validator::make(Input::all(), $rules);
 
         if ($validator->fails()) {
-            return Redirect::to("appointment/edit/$id")->withErrors($validator);
+            return Redirect::to("appointment/$id/edit")->withErrors($validator);
         }
         else {
             $doctor = new User;

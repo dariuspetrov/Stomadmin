@@ -11,7 +11,8 @@
                     </div>
                     <br> <hr>
                     <div class="col-md-8 offset-md-2">
-                        <form method="POST" action="/appointment/update{{ '/'.$appointment->appointment_id }}">
+                        <form method="POST" action="/appointments/{{ $appointment->appointment_id }}">
+                            <input type="hidden" name="_method" value="PUT">
                             {{ csrf_field() }}
                             <div class="form-group">
                                 <label for="sel1">Doctor: (Initial doctor : {{  $doctors->where('id', '=', $appointment->doctor_id)->first()->name  }}) </label>

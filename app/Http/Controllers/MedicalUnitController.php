@@ -94,10 +94,10 @@ class MedicalUnitController extends Controller
     public function edit($id)
     {
         if(Gate::allows('edit-unit')){
-            $unit = MedicalUnit::find($id);
+            $unit = MedicalUnit::where('unit_id', '=', $id)->first();
 
-            if($unit = null){
-                return view('medicalunit.edit')->with($unit, 'unit');
+            if($unit != null){
+                return view('medicalunit.edit')->with('unit', $unit);
             }
             else{
                 return view('errors.404');
@@ -115,9 +115,35 @@ class MedicalUnitController extends Controller
      * @param  \Stomadmin\MedicalUnit  $medicalUnit
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, MedicalUnit $medicalUnit)
+    public function update(Request $request, $id)
     {
-        //
+        $rules = array(
+            'name'       => 'required|string',
+            'address'    => 'required|string',
+            'phone'      => 'required|string'
+        );
+
+        $validator = Validator::make(Input::all(), $rules);
+
+        if ($validator->fails()) {
+            return Redirect::to("/medicalunits/$id/edit")->withErrors($validator);
+        }
+        else {
+            if(Gate::allows('edit-unit')){
+                $unit = MedicalUnit::where('unit_id', '=', $id)->first();
+
+                $unit->name = request('name');
+                $unit->address = request('address');
+                $unit->phone = request('phone');
+
+                $unit->save();
+
+                return Redirect::to('medicalunits');
+            }
+            else{
+                return response()->view('errors.403');
+            }
+        }
     }
 
     /**

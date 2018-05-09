@@ -29,12 +29,4 @@ Route::get('/user', 'UserController@showUserPanel');
 
 Route::resource('/users', 'UserController');
 Route::resource('/appointments', 'AppointmentController');
-
-// Medical units routes
-// Route::resource('/medicalunits', 'MedicalUnitController');
-Route::get('/medicalunits', 'MedicalUnitController@index');
-Route::get('/medicalunit/{medicalunitid}', 'MedicalUnitController@show');
-Route::get('/medicalunit/create', 'MedicalUnitController@create');
-Route::get('/medicalunit/edit/{medicalunitid}', 'MedicalUnitController@edit');
-Route::post('/medicalunit/update/{medicalunitid}', 'MedicalUnitController@update');
-Route::post('/medicalunit/store', 'MedicalUnitController@store');
+Route::resource('/medicalunits', 'MedicalUnitController');

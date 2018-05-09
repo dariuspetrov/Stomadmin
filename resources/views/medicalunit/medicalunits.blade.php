@@ -24,11 +24,11 @@
                             <tbody>
                                 @foreach($units as $unit)
                                     <tr>
-                                        <td><a href="{{ url('medicalunit').'/'.$unit->id }}">{{$unit->unit_id}}</a></td>
+                                        <td><a href="{{ url('medicalunits').'/'.$unit->unit_id }}">{{$unit->unit_id}}</a></td>
                                         <td>{{$unit->name}}</td>
                                         <td>{{$unit->address}}</td>
                                         <td>{{$unit->phone}}</td>
-                                        <td><a href="{{ url('user/edit').'/'.$unit->id }}">Edit</a></td>
+                                        <td><a href="{{ url('medicalunits').'/'.$unit->unit_id.'/edit' }}">Edit</a></td>
                                     </tr>
                                 @endforeach
                             </tbody>
