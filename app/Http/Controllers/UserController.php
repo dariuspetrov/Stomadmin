@@ -62,20 +62,34 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        if(Gate::allows('store-user')){
-            $user = new User();
+        $rules = array(
+            'name'         => 'required|string',
+            'email'        => 'required|email',
+            'password'     => 'required|string',
+            'role'         => 'required|numeric'
+        );
 
-            $user->email = request('email');
-            $user->name = request('name');
-            $user->password = bcrypt(request('password'));
-            $user->role = request('role');
+        $validator = Validator::make(Input::all(), $rules);
 
-            $user->save();
-
-            return Redirect::to('users');
+        if ($validator->fails()) {
+            return Redirect::to("/users/create")->withErrors($validator)->withInput(Input::except('password'));
         }
         else{
-            return response()->view('errors.403');
+            if(Gate::allows('store-user')){
+                $user = new User();
+
+                $user->email = request('email');
+                $user->name = request('name');
+                $user->password = bcrypt(request('password'));
+                $user->role = request('role');
+
+                $user->save();
+
+                return Redirect::to('users');
+            }
+            else{
+                return response()->view('errors.403');
+            }
         }
     }
 
@@ -130,36 +144,44 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
         $rules = array(
-            'name'       => 'required',
-            'email'      => 'required|email',
-            'password'   => 'required|string',
-            'role'       => 'required'
+            'name'         => 'required|string',
+            'email'        => 'required|email',
+            'password'     => 'required|string',
+            'role'         => 'required|numeric'
         );
 
         $validator = Validator::make(Input::all(), $rules);
 
         if ($validator->fails()) {
-            return Redirect::to("user/edit/$id")->withErrors($validator)->withInput(Input::except('password'));
+            return Redirect::to("/users/$id/edit")->withErrors($validator)->withInput(Input::except('password'));
         }
-        else {
-            $user = User::find($id);
-            $user->name       = Input::get('name');
-            $user->email      = Input::get('email');
-            $user->role       = Input::get('role');
-            $user->save();
+        else{
+            if(Gate::allows('edit-user')){
+                $user = User::find($id);
 
-            return Redirect::to('users');
+                $user->email = request('email');
+                $user->name = request('name');
+                $user->password = bcrypt(request('password'));
+                $user->role = request('role');
+
+                $user->save();
+
+                return Redirect::to('users');
+            }
+            else{
+                return response()->view('errors.403');
+            }
         }
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //to be implemented remove a user from DB
-    }
-}
+        /**
+         * Remove the specified resource from storage.
+         *
+         * @param  int  $id
+         * @return \Illuminate\Http\Response
+         */
+        public function destroy($id)
+        {
+            //to be implemented remove a user from DB
+        }
+            }

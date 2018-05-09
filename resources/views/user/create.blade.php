@@ -11,7 +11,7 @@
                     </div>
                     <br> <hr>
                     <div class="col-md-8 offset-md-2">
-                        <form method="POST" action="/user/store">
+                        <form method="POST" action="/users">
                             {{ csrf_field() }}
                             <br>
                             <div class="form-group">
@@ -34,6 +34,7 @@
                             <br>
                             <button type="submit" class="btn btn-success pull-right">Submit</button>
                         </form>
+                        @include('layouts.errorsdisplay')
                     </div>
                 </div>
             </div>

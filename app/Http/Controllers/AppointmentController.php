@@ -67,7 +67,7 @@ class AppointmentController extends Controller
 
             $appointment->doctor_id = $doctor::where('name', '=', request('doctor_name'))->get()->first()->id;
             $appointment->pacient_id = request('pacient_id');
-            $appointment->date = new Carbon(Input::get('date').Input::get('time'));
+            $appointment->date = new Carbon(request('date').request('time'));
             $appointment->cancelled = 0;
 
             $appointment->save();
@@ -82,9 +82,9 @@ class AppointmentController extends Controller
      * @param  \Stomadmin\Appointment  $appointment
      * @return \Illuminate\Http\Response
      */
-    public function show(Appointment $appointment, $appointmentid)
+    public function show($id)
     {
-        return $appointment->where('appointment_id','=',$appointmentid)->get();
+        return Appointment::find($id);
     }
 
     /**
@@ -131,7 +131,7 @@ class AppointmentController extends Controller
         $validator = Validator::make(Input::all(), $rules);
 
         if ($validator->fails()) {
-            return Redirect::to("appointment/edit/$id")->withErrors($validator);
+            return Redirect::to("appointment/$id/edit")->withErrors($validator);
         }
         else {
             $doctor = new User;

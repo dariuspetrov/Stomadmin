@@ -27,29 +27,6 @@ Route::get('/doctor', 'DoctorController@showDoctorPanel')->name('doctorcontrolpa
 Route::get('/user', 'UserController@showUserPanel');
 //Route::get('/admin/add-user', 'AdminController@showCreateUserPanel');
 
-// User routes
-//Route::resource('/users', 'UserController');
-Route::get('/users', 'UserController@index');
-Route::get('/user/{userid}', 'UserController@show');
-Route::get('/users/create', 'UserController@create');
-Route::get('/user/edit/{userid}', 'UserController@edit');
-Route::post('/user/update/{userid}', 'UserController@update');
-Route::post('/user/store', 'UserController@store');
-
-// Appointment routes
-// Route::resource('/appointments', 'AppointmentController');
-Route::get('/appointments', 'AppointmentController@index');
-Route::get('/appointment/{appointmentid}', 'AppointmentController@show');
-Route::get('/appointments/create', 'AppointmentController@create');
-Route::get('/appointment/edit/{appointmentid}', 'AppointmentController@edit');
-Route::post('/appointment/update/{appointmentid}', 'AppointmentController@update');
-Route::post('/appointment/store', 'AppointmentController@store');
-
-// Medical units routes
-// Route::resource('/medicalunits', 'MedicalUnitController');
-Route::get('/medicalunits', 'MedicalUnitController@index');
-Route::get('/medicalunit/{medicalunitid}', 'MedicalUnitController@show');
-Route::get('/medicalunit/create', 'MedicalUnitController@create');
-Route::get('/medicalunit/edit/{medicalunitid}', 'MedicalUnitController@edit');
-Route::post('/medicalunit/update/{medicalunitid}', 'MedicalUnitController@update');
-Route::post('/medicalunit/store', 'MedicalUnitController@store');
+Route::resource('/users', 'UserController');
+Route::resource('/appointments', 'AppointmentController');
+Route::resource('/medicalunits', 'MedicalUnitController');

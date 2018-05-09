@@ -24,11 +24,11 @@
                             <tbody>
                                 @foreach($usersdata as $user)
                                     <tr>
-                                        <td><a href="{{ url('user').'/'.$user->id }}">{{$user->id}}</a></td>
+                                        <td><a href="{{ url('users').'/'.$user->id }}">{{$user->id}}</a></td>
                                         <td>{{$user->name}}</td>
                                         <td>{{$user->email}}</td>
                                         <td>{{$user->getRoleName()}}</td>
-                                        <td><a href="{{ url('user/edit').'/'.$user->id }}">Edit</a></td>
+                                        <td><a href="{{ url('users').'/'.$user->id.'/edit' }}">Edit</a></td>
                                     </tr>
                                 @endforeach
                             </tbody>

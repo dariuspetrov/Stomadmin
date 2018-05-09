@@ -11,7 +11,7 @@
                     </div>
                     <br> <hr>
                     <div class="col-md-8 offset-md-2">
-                        <form method="POST" action="/appointment/store">
+                        <form method="POST" action="/appointments">
                             {{ csrf_field() }}
                             <div class="form-group">
                                 <label for="sel1">Select list:</label>

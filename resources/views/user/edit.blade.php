@@ -11,16 +11,17 @@
                     </div>
                     <br> <hr>
                     <div class="col-md-8 offset-md-2">
-                        <form method="POST" action="/user/update{{ '/'. $user->id }}">
+                        <form method="POST" action="/users/{{ $user->id }}">
+                            <input type="hidden" name="_method" value="PUT">
                             {{ csrf_field() }}
                             <br>
                             <div class="form-group">
-                                <label for="useremail">Email:</label>
-                                <input type="email" class="form-control" id="email" value="{{ $user->email }}" placeholder="email@email.com" name="email">
+                                <label for="useremail">Email ({{ $user->email }}):</label>
+                                <input type="email" class="form-control" id="email" placeholder="email@email.com" name="email">
                             </div>
                             <div class="form-group">
-                                <label for="username">Name:</label>
-                                <input type="text" class="form-control" id="username" value="{{ $user->name }}" placeholder="Full Name" name="name">
+                                <label for="username">Name ({{ $user->name }})</label>
+                                <input type="text" class="form-control" id="username" placeholder="Full Name" name="name">
                             </div>
                             <div class="form-group">
                                 <label for="password">Password:</label>
