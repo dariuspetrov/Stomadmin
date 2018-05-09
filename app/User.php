@@ -3,6 +3,7 @@
 namespace Stomadmin;
 
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
@@ -70,5 +71,13 @@ class User extends Authenticatable
             return true;
         else
             return false;
+    }
+
+    public function appointemntAsPacient(){
+        return Appointment::where('pacient_id', $this->id);
+    }
+
+    public function appointmentAsDoctor(){
+        return Appointment::where('doctor_id', $this->id);
     }
 }

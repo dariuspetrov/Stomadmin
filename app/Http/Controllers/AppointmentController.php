@@ -23,7 +23,9 @@ class AppointmentController extends Controller
     {
         if(Gate::allows('view-appointments')){
             $appointment = new Appointment();
-            return $appointment->all();
+
+            //return the usernames with no id's
+            return view('appointment.appointments')->with('appointments', $appointment::all());
         }
         else{
             return response()->view('errors.403');
