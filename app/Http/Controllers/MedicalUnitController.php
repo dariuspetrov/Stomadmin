@@ -152,8 +152,11 @@ class MedicalUnitController extends Controller
      * @param  \Stomadmin\MedicalUnit  $medicalUnit
      * @return \Illuminate\Http\Response
      */
-    public function destroy(MedicalUnit $medicalUnit)
+    public function destroy($id)
     {
-        //
+        $unit = MedicalUnit::find($id);
+        $unit->delete();
+
+        return Redirect::to('medicalunits');
     }
 }

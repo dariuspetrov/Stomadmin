@@ -174,14 +174,21 @@ class UserController extends Controller
         }
     }
 
-        /**
-         * Remove the specified resource from storage.
-         *
-         * @param  int  $id
-         * @return \Illuminate\Http\Response
-         */
-        public function destroy($id)
-        {
-            //to be implemented remove a user from DB
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        $user = User::find($id);
+
+        try {
+            $user->delete();
         }
-            }
+        catch (\Exception $e) {
+            return view('errors.userappointed');
+        }
+    }
+}
