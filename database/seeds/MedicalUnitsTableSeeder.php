@@ -70,5 +70,65 @@ class MedicalUnitsTableSeeder extends Seeder
             'address' => 'Aeroportului Nr. 43',
             'phone' => '+40 777 320 380'
         ]);
+
+        DB::table('medical_units')->insert([
+            'name' => 'Cabinetul Dr. Grațian Danilescu',
+            'address' => 'Antim Nr. 8',
+            'phone' => '+40 745 762 213'
+        ]);
+
+        DB::table('medical_units')->insert([
+            'name' => 'Cabinetul Dr. Vasile Mihailov',
+            'address' => 'Republicii Nr. 21',
+            'phone' => '+40 743 199 106'
+        ]);
+
+        DB::table('medical_units')->insert([
+            'name' => 'Cabinetul Dr. Iosif Gantt',
+            'address' => 'Apusului Nr. 47',
+            'phone' => '+40 745 474 747'
+        ]);
+
+        DB::table('medical_units')->insert([
+            'name' => 'Cabinetul Dr. Hans Klemmen',
+            'address' => 'Bd. Washington Nr 47',
+            'phone' => '+40 760 555 493'
+        ]);
+
+        DB::table('medical_units')->insert([
+            'name' => 'Cabinetul Dr. Hans Kristiansen',
+            'address' => 'Nordului Nr. 8',
+            'phone' => '+40 722 567 384'
+        ]);
+
+        DB::table('medical_units')->insert([
+            'name' => 'Cabinetul Dr. Grațiela Lilovan',
+            'address' => 'Colentina Nr. 79',
+            'phone' => '+40 741 132 583'
+        ]);
+
+        DB::table('medical_units')->insert([
+            'name' => 'Cabinetul Dr. Adelina Kahon',
+            'address' => 'Ardealului Nr. 48',
+            'phone' => '+40 767 890 557'
+        ]);
+
+        DB::table('medical_units')->insert([
+            'name' => 'Cabinetul Dr. Dorina Pavencu',
+            'address' => 'Miscarea Populara Nr. 73',
+            'phone' => '+40 745 888 678'
+        ]);
+
+        DB::table('medical_units')->insert([
+            'name' => 'Cabinetul Dr. Vasilea Aglaia',
+            'address' => 'Ineu Nr 75',
+            'phone' => '+40 743 667 224'
+        ]);
+
+        DB::table('medical_units')->insert([
+            'name' => 'Cabinetul Dr. Zoe Trahanachiu',
+            'address' => 'I. L. Caragiale Nr. 27',
+            'phone' => '+40 722 241 333'
+        ]);
     }
 }
