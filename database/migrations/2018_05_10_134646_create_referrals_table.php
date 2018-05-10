@@ -22,6 +22,7 @@ class CreateReferralsTable extends Migration
             $table->foreign('pacient_id')->references('id')->on('users');
             $table->foreign('doctor_id')->references('id')->on('users');
             $table->foreign('unit_id')->references('unit_id')->on('medical_units');
+            $table->timestamps();
         });
     }
 

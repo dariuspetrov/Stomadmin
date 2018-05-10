@@ -25,6 +25,24 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
+        /* Role-based control panels */
+        Gate::define('view-admin-panel', function($user){
+            return $user->isAdmin();
+        });
+
+        Gate::define('view-secretary-panel', function($user){
+            return $user->isSecretary();
+        });
+
+        Gate::define('view-doctor-panel', function($user){
+            return $user->isDoctor();
+        });
+
+        Gate::define('view-user-panel', function($user){
+            return $user->isUser();
+        });
+
+        /* User gates */
         Gate::define('view-user', function($user){
             return $user->isAdmin();
         });
@@ -45,22 +63,7 @@ class AuthServiceProvider extends ServiceProvider
             return $user->isAdmin();
         });
 
-        Gate::define('view-admin-panel', function($user){
-            return $user->isAdmin();
-        });
-
-        Gate::define('view-secretary-panel', function($user){
-            return $user->isSecretary();
-        });
-
-        Gate::define('view-doctor-panel', function($user){
-            return $user->isDoctor();
-        });
-
-        Gate::define('view-user-panel', function($user){
-            return $user->isUser();
-        });
-
+        /* Appointment gates */
         Gate::define('view-appointments', function($user){
             if($user->isAdmin() || $user->isSecretary() || $user->isDoctor()){
                 return true;
@@ -74,6 +77,7 @@ class AuthServiceProvider extends ServiceProvider
             return $user->isAdmin();
         });
 
+        /* Medical untis gates */
         Gate::define('view-medical-units', function($user){
             if($user->isAdmin() || $user->isSecretary() || $user->isDoctor()){
                 return true;
@@ -98,6 +102,16 @@ class AuthServiceProvider extends ServiceProvider
 
         Gate::define('edit-unit', function($user){
             return $user->isAdmin();
+        });
+
+        /* Refferal gates */
+        Gate::define('create-referral', function($user){
+            if($user->isAdmin() || $user->isDoctor() || $user->isSecretary()){
+                return true;
+            }
+            else{
+                return false;
+            }
         });
     }
 }

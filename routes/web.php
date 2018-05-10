@@ -28,5 +28,6 @@ Route::get('/user', 'UserController@showUserPanel');
 //Route::get('/admin/add-user', 'AdminController@showCreateUserPanel');
 
 Route::resource('/users', 'UserController');
-Route::resource('/appointments', 'AppointmentController');
 Route::resource('/medicalunits', 'MedicalUnitController');
+Route::resource('/appointments', 'AppointmentController');
+Route::resource('/referrals', 'ReferralController');
