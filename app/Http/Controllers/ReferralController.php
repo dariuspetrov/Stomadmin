@@ -80,6 +80,7 @@ class ReferralController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $referral = Referral::find($id);
+        $referral->delete();
     }
 }
