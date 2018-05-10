@@ -2967,6 +2967,7 @@ class ComposerStaticInit9964e1b17837bd349e7f6547939582f6
         'Stomadmin\\Providers\\BroadcastServiceProvider' => __DIR__ . '/../..' . '/app/Providers/BroadcastServiceProvider.php',
         'Stomadmin\\Providers\\EventServiceProvider' => __DIR__ . '/../..' . '/app/Providers/EventServiceProvider.php',
         'Stomadmin\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/app/Providers/RouteServiceProvider.php',
+        'Stomadmin\\Referrals' => __DIR__ . '/../..' . '/app/Referrals.php',
         'Stomadmin\\User' => __DIR__ . '/../..' . '/app/User.php',
         'Symfony\\Component\\Console\\Application' => __DIR__ . '/..' . '/symfony/console/Application.php',
         'Symfony\\Component\\Console\\CommandLoader\\CommandLoaderInterface' => __DIR__ . '/..' . '/symfony/console/CommandLoader/CommandLoaderInterface.php',
