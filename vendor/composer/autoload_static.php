@@ -2965,6 +2965,7 @@ class ComposerStaticInit9964e1b17837bd349e7f6547939582f6
         'Stomadmin\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
         'Stomadmin\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
         'Stomadmin\\MedicalUnit' => __DIR__ . '/../..' . '/app/MedicalUnit.php',
+        'Stomadmin\\Medicine' => __DIR__ . '/../..' . '/app/Medicine.php',
         'Stomadmin\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'Stomadmin\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',
         'Stomadmin\\Providers\\BroadcastServiceProvider' => __DIR__ . '/../..' . '/app/Providers/BroadcastServiceProvider.php',

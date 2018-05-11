@@ -2663,6 +2663,7 @@ return array(
     'Stomadmin\\Http\\Middleware\\TrustProxies' => $baseDir . '/app/Http/Middleware/TrustProxies.php',
     'Stomadmin\\Http\\Middleware\\VerifyCsrfToken' => $baseDir . '/app/Http/Middleware/VerifyCsrfToken.php',
     'Stomadmin\\MedicalUnit' => $baseDir . '/app/MedicalUnit.php',
+    'Stomadmin\\Medicine' => $baseDir . '/app/Medicine.php',
     'Stomadmin\\Providers\\AppServiceProvider' => $baseDir . '/app/Providers/AppServiceProvider.php',
     'Stomadmin\\Providers\\AuthServiceProvider' => $baseDir . '/app/Providers/AuthServiceProvider.php',
     'Stomadmin\\Providers\\BroadcastServiceProvider' => $baseDir . '/app/Providers/BroadcastServiceProvider.php',
