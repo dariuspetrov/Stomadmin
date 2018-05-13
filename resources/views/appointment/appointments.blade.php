@@ -15,10 +15,10 @@
                             <thead>
                                 <tr>
                                     <th scope="col">id</th>
+                                    <th scope="col"></th>
                                     <th scope="col">Doctor</th>
                                     <th scope="col">Pacient</th>
                                     <th scope="col">Date</th>
-                                    <th scope="col"></th>
                                     <th scope="col"></th>
                                     <th scope="col"></th>
                                 </tr>
@@ -26,12 +26,12 @@
                             <tbody>
                                 @foreach($appointments as $appointment)
                                     <tr>
-                                        <td><a href="{{ url('appointments').'/'.$appointment->appointment_id }}">{{ $appointment->appointment_id }}</a></td>
+                                        <td><a href="{{ url('appointments').'/'.$appointment->appointment_id }}">{{$appointment->appointment_id}}</a></td>
                                         <td>{{$appointment->id}}</td>
-                                        <td>{{$appointment->doctor_id}}</td>
-                                        <td>{{$appointment->pacient_id}}</td>
+                                        <td>{{$users->where('id', '=', $appointment->doctor_id)->first()->name }}</td>
+                                        <td>{{$users->where('id', '=', $appointment->pacient_id)->first()->name }}</td>
                                         <td>{{$appointment->date}}</td>
-                                        <td><a href="{{ url('appointment').'/'.$appointment->appointment_id.'/edit' }}">Edit</a></td>
+                                        <td><a href="{{ url('appointments').'/'.$appointment->appointment_id.'/edit' }}">Edit</a></td>
 
                                         <td><form method="POST" action="/appointments/{{ $appointment->appointment_id }}">
                                             <input type="hidden" name="_method" value="DELETE">
