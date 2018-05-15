@@ -113,5 +113,10 @@ class AuthServiceProvider extends ServiceProvider
                 return false;
             }
         });
+
+        /* Refferal gates */
+        Gate::define('view-interventions', function($user){
+            return $user->isAdmin();
+        });
     }
 }

@@ -31,3 +31,4 @@ Route::resource('/users', 'UserController');
 Route::resource('/medicalunits', 'MedicalUnitController');
 Route::resource('/appointments', 'AppointmentController');
 Route::resource('/referrals', 'ReferralController');
+Route::resource('/interventions', 'InterventionController');

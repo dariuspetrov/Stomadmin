@@ -2,7 +2,15 @@
 
 namespace Stomadmin\Http\Controllers;
 
+use Stomadmin\Intervention;
+use Stomadmin\InterventionType;
+use Stomadmin\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Input;
+use Redirect;
+use Session;
+use Validator;
 
 class InterventionController extends Controller
 {
@@ -13,7 +21,19 @@ class InterventionController extends Controller
      */
     public function index()
     {
-        //
+        if(Gate::allows('view-interventions')){
+            $data = [
+                'interventions' => Intervention::all(),
+                'intervention_types' => InterventionType::all(),
+                'users' => User::all()
+            ];
+
+            //return the usernames with no id's
+            return view('intervention.interventions')->with($data);
+        }
+        else{
+            return response()->view('errors.403');
+        }
     }
 
     /**
@@ -45,7 +65,7 @@ class InterventionController extends Controller
      */
     public function show($id)
     {
-        //
+        return Intervention::where('intervention_id', '=', $id)->get();
     }
 
     /**
