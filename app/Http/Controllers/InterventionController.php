@@ -43,7 +43,12 @@ class InterventionController extends Controller
      */
     public function create()
     {
-        //
+        $data = [
+            'pacients' => User::where('role','=',0)->get(),
+            'interventions' => InterventionType::all()
+        ];
+
+        return view('intervention.create')->with($data);
     }
 
     /**
@@ -54,7 +59,28 @@ class InterventionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $rules = array(
+            'pacient_name' => 'required',
+            'intervention_name' => 'required',
+        );
+
+        $validator = Validator::make(Input::all(), $rules);
+
+        if ($validator->fails()) {
+            return Redirect::to("intervention/create")->withErrors($validator);
+        }
+        else{
+            $pacient = new User;
+            $intervention = new Intervention();
+            $interventiontype = new InterventionType();
+
+            $intervention->pacient_id = $pacient::where('name', '=', request('pacient_name'))->get()->first()->id;
+            $intervention->intervention_type = $interventiontype::where('name', '=', request('intervention_name'))->get()->first()->intervention_id;
+
+            $intervention->save();
+
+            return Redirect::to('interventions');
+        }
     }
 
     /**
@@ -65,7 +91,7 @@ class InterventionController extends Controller
      */
     public function show($id)
     {
-        return Intervention::where('intervention_id', '=', $id)->get();
+        return Intervention::find($id);
     }
 
     /**
@@ -76,7 +102,14 @@ class InterventionController extends Controller
      */
     public function edit($id)
     {
-        //
+        // should it have an edit intervention?
+        $data = [
+            'initial_intervention' => Intervention::find($id),
+            'interventions' => Intervention::all(),
+            'pacients' => User::where('role','=',0)->get(),
+        ];
+
+        return view('intervention.edit')->with($data);
     }
 
     /**
@@ -99,6 +132,9 @@ class InterventionController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $intervention = Intervention::find($id);
+        $intervention->delete();
+
+        return Redirect::to('interventions');
     }
 }

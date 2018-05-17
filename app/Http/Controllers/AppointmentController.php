@@ -102,7 +102,7 @@ class AppointmentController extends Controller
     {
         if(Gate::allows('edit-appointment')){
             $data = [
-                'appointment' => Appointment::where('appointment_id', '=', $id)->get()->first(),
+                'appointment' => Appointment::find($id),
                 'doctors' => User::where('role','=',2)->get()
             ];
 
