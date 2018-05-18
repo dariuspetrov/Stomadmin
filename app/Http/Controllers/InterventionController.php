@@ -102,14 +102,7 @@ class InterventionController extends Controller
      */
     public function edit($id)
     {
-        // should it have an edit intervention?
-        $data = [
-            'initial_intervention' => Intervention::find($id),
-            'interventions' => Intervention::all(),
-            'pacients' => User::where('role','=',0)->get(),
-        ];
-
-        return view('intervention.edit')->with($data);
+        // should intervention have an edit/update?
     }
 
     /**

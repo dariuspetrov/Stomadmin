@@ -55,7 +55,8 @@ body{
 }
 
 .panel-item-image{
-    background-color: black;
+    text-align:  center;
+    font-size: 12vh;
     width: 100px;
     height: 100px;
     margin: 0 auto;
@@ -65,4 +66,12 @@ body{
 .panel-item a{
     text-decoration: none;
     color: black;
+}
+
+@font-face {
+    font-family: "FontAwesome";
+    font-weight: normal;
+    src: url("fonts/fa-solid-900.woff") format('woff');
+    src: url("fonts/fa-solid-900.woff2") format('woff2');
+    src: url("fonts/fa-solid-900.ttf") format('truetype');
 }
