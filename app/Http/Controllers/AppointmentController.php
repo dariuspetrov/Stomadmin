@@ -22,13 +22,9 @@ class AppointmentController extends Controller
     public function index()
     {
         if(Gate::allows('view-appointments')){
-            $data = [
-                'appointments' => Appointment::all(),
-                'users' => User::all()
-            ];
+            $appointments = Appointment::all();
 
-            //return the usernames with no id's
-            return view('appointment.appointments')->with($data);
+            return view('appointment.appointments')->with('appointments',$appointments);
         }
         else{
             return response()->view('errors.403');

@@ -22,14 +22,9 @@ class InterventionController extends Controller
     public function index()
     {
         if(Gate::allows('view-interventions')){
-            $data = [
-                'interventions' => Intervention::all(),
-                'intervention_types' => InterventionType::all(),
-                'users' => User::all()
-            ];
+            $interventions = Intervention::all();
 
-            //return the usernames with no id's
-            return view('intervention.interventions')->with($data);
+            return view('intervention.interventions')->with('interventions',$interventions);
         }
         else{
             return response()->view('errors.403');
@@ -131,3 +126,4 @@ class InterventionController extends Controller
         return Redirect::to('interventions');
     }
 }
+

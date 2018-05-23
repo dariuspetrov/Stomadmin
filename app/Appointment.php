@@ -8,7 +8,11 @@ class Appointment extends Model
 {
     protected $primaryKey = 'appointment_id';
 
-    public function user(){
-        return $this->belongsTo("User");
+    public function pacient(){
+        return $this->belongsTo('Stomadmin\User','pacient_id');
+    }
+
+    public function doctor(){
+        return $this->belongsTo('Stomadmin\User','doctor_id');
     }
 }

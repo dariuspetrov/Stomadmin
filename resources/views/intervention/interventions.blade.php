@@ -19,15 +19,14 @@
                                     <th scope="col">Pacient</th>
                                     <th scope="col">Tip Interventie</th>
                                     <th scope="col"></th>
-                                    <th scope="col"></th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach($interventions as $intervention)
                                     <tr>
                                         <td><a href="{{ url('interventions').'/'.$intervention->intervention_id }}">{{$intervention->intervention_id}}</a></td>
-                                        <td>{{ $users->where('id', '=', $intervention->pacient_id)->first()->name }}</td>
-                                        <td>{{ $intervention_types->where('intervention_id', '=', $intervention->intervention_type)->first()->name }}</td>
+                                        <td>{{ $intervention->user->name }}</td>
+                                        <td>{{ $intervention->type->name }}</td>
 
                                         <td><form method="POST" action="/interventions/{{ $intervention->intervention_id }}">
                                             <input type="hidden" name="_method" value="DELETE">

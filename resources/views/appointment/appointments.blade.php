@@ -27,16 +27,18 @@
                                 @foreach($appointments as $appointment)
                                     <tr>
                                         <td><a href="{{ url('appointments').'/'.$appointment->appointment_id }}">{{$appointment->appointment_id}}</a></td>
-                                        <td>{{$appointment->id}}</td>
-                                        <td>{{$users->where('id', '=', $appointment->doctor_id)->first()->name }}</td>
-                                        <td>{{$users->where('id', '=', $appointment->pacient_id)->first()->name }}</td>
-                                        <td>{{$appointment->date}}</td>
-                                        <td><a href="{{ url('appointments').'/'.$appointment->appointment_id.'/edit' }}">Edit</a></td>
+                                        <td>{{ $appointment->id }}</td>
+                                        <td>{{ $appointment->doctor->name }}</td>
+                                        <td>{{ $appointment->pacient->name }}</td>
+                                        <td>{{ $appointment->date }}</td>
+                                        <td><a href="{{ url('appointments').'/'.$appointment->appointment_id.'/edit' }}">
+                                            <button class="btn btn-primary">Edit</button>
+                                        </a></td>
 
                                         <td><form method="POST" action="/appointments/{{ $appointment->appointment_id }}">
                                             <input type="hidden" name="_method" value="DELETE">
                                             {{ csrf_field() }}
-                                            <button>Delete</button>
+                                            <button class="btn btn-danger">Delete</button>
                                         </form></td>
                                     </tr>
                                 @endforeach
