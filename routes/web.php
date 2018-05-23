@@ -13,7 +13,7 @@
 
 Route::get('/', function () {
     if(Auth::check()){
-        redirect('home');
+        return redirect('/home');
     }
     return view('welcome');
 });
@@ -25,7 +25,6 @@ Route::get('/admin', 'AdminController@showAdminPanel')->name('admincontrolpannel
 Route::get('/secretary', 'SecretaryController@showSecretaryPanel')->name('secretarycontrolpanel');
 Route::get('/doctor', 'DoctorController@showDoctorPanel')->name('doctorcontrolpanel');
 Route::get('/user', 'UserController@showUserPanel');
-//Route::get('/admin/add-user', 'AdminController@showCreateUserPanel');
 
 Route::resource('/users', 'UserController');
 Route::resource('/medicalunits', 'MedicalUnitController');

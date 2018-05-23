@@ -28,12 +28,12 @@
                                         <td>{{$user->name}}</td>
                                         <td>{{$user->email}}</td>
                                         <td>{{$user->getRoleName()}}</td>
-                                        <td><a href="{{ url('users').'/'.$user->id.'/edit' }}">Edit</a></td>
+                                        <td><a href="{{ url('users').'/'.$user->id.'/edit' }}"> <button class="btn btn-primary">Edit</button> </a></td>
 
                                         <td><form method="POST" action="/users/{{ $user->id }}">
                                             <input type="hidden" name="_method" value="DELETE">
                                             {{ csrf_field() }}
-                                            <button>Delete</button>
+                                            <button class="btn btn-danger">Delete</button>
                                         </form></td>
                                     </tr>
                                 @endforeach

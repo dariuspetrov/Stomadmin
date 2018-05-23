@@ -22,7 +22,9 @@ class ReferralController extends Controller
      */
     public function index()
     {
-        return Referral::all();
+        $referrals = Referral::all();
+
+        return view('referral.referrals')->with('referrals',$referrals);
     }
 
     /**

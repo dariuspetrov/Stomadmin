@@ -28,12 +28,12 @@
                                         <td>{{$unit->name}}</td>
                                         <td>{{$unit->address}}</td>
                                         <td>{{$unit->phone}}</td>
-                                        <td><a href="{{ url('medicalunits').'/'.$unit->unit_id.'/edit' }}">Edit</a></td>
+                                        <td><a href="{{ url('medicalunits').'/'.$unit->unit_id.'/edit' }}"> <button class="btn btn-primary">Edit</button> </a></td>
 
                                         <td><form method="POST" action="/medicalunits/{{ $unit->unit_id }}">
                                             <input type="hidden" name="_method" value="DELETE">
                                             {{ csrf_field() }}
-                                            <button>Delete</button>
+                                            <button class="btn btn-danger">Delete</button>
                                         </form></td>
                                     </tr>
                                 @endforeach

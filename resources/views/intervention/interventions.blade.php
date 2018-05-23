@@ -31,7 +31,7 @@
                                         <td><form method="POST" action="/interventions/{{ $intervention->intervention_id }}">
                                             <input type="hidden" name="_method" value="DELETE">
                                             {{ csrf_field() }}
-                                            <button>Delete</button>
+                                            <button class="btn btn-danger">Delete</button>
                                         </form></td>
                                     </tr>
                                 @endforeach
