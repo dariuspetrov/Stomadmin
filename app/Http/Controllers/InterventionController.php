@@ -22,7 +22,7 @@ class InterventionController extends Controller
     public function index()
     {
         if(Gate::allows('view-interventions')){
-            $interventions = Intervention::all();
+            $interventions = Intervention::orderBy('pacient_id')->get();
 
             return view('intervention.interventions')->with('interventions',$interventions);
         }

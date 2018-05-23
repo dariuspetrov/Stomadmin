@@ -24,21 +24,19 @@ class HomeController extends Controller
      */
     public function index()
     {
-        if(Auth::user()->isAdmin()){
-            return view('admin.controlpanel');
+        switch(Auth::user()->getRoleName()){
+        case 'Admin':
+            return redirect('/admin');
+            break;
+        case 'Doctor':
+            return redirect('/doctor');
+            break;
+        case 'Secretary':
+            return redirect('/secretary');
+            break;
+        case 'User':
+            return redirect('/user');
+            break;
         }
-
-        if(Auth::user()->isSecretary()){
-            return view('secretary.controlpanel');
-        }
-
-        if(Auth::user()->isDoctor()){
-            return view('doctor.controlpanel');
-        }
-
-        if(Auth::user()->isUser()){
-            return view('user.controlpanel');
-        }
-        // return view('home');
     }
 }
