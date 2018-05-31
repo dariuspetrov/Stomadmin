@@ -105,6 +105,24 @@
                                     <h3 class="text-center">Create referrals</h3>
                                 </a>
                             </div>
+                            <div class="col-md-3 panel-item">
+                                <a href="{{ url('/diagnostics') }}" >
+                                    <div class="panel-item-image">
+                                        <i class="far fa-calendar-plus"></i>
+                                    </div>
+                                    <hr>
+                                    <h3 class="text-center">View diagnostics</h3>
+                                </a>
+                            </div>
+                            <div class="col-md-3 panel-item">
+                                <a href="{{ url('/diagnostics/create') }}" >
+                                    <div class="panel-item-image">
+                                        <i class="far fa-calendar-plus"></i>
+                                    </div>
+                                    <hr>
+                                    <h3 class="text-center">Create diagnostics</h3>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
