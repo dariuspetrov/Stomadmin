@@ -2,7 +2,14 @@
 
 namespace Stomadmin\Http\Controllers;
 
+use Stomadmin\Diagnostic;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Input;
+use Stomadmin\User;
+use Redirect;
+use Session;
+use Validator;
 
 class DiagnosticController extends Controller
 {
@@ -13,7 +20,7 @@ class DiagnosticController extends Controller
      */
     public function index()
     {
-        //
+        return Diagnostic::all();
     }
 
     /**
@@ -23,7 +30,9 @@ class DiagnosticController extends Controller
      */
     public function create()
     {
-        //
+        $diagnostics = Diagnostic::all();
+
+        return view('diagnostic.create')->with('diagnostics',$diagnostics);
     }
 
     /**
@@ -34,7 +43,21 @@ class DiagnosticController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $rules = ['diagnostic_name' => 'required'];
+
+        $validator = Validator::make(Input::all(), $rules);
+
+        if ($validator->fails()) {
+            return Redirect::to("diagnostics/create")->withErrors($validator);
+        }
+        else{
+            $diagnostic = new Diagnostic();
+            $diagnostic->name = request('diagnostic_name');
+
+            $diagnostic->save();
+
+            return Redirect::to('diagnostics');
+        }
     }
 
     /**
@@ -45,7 +68,7 @@ class DiagnosticController extends Controller
      */
     public function show($id)
     {
-        //
+        return Diagnostic::find($id);
     }
 
     /**
@@ -56,7 +79,7 @@ class DiagnosticController extends Controller
      */
     public function edit($id)
     {
-        //
+        // no edit method
     }
 
     /**
@@ -68,7 +91,7 @@ class DiagnosticController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        // no update method
     }
 
     /**
@@ -79,6 +102,10 @@ class DiagnosticController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $diagnostic = Diagnostic::find($id);
+
+        $diagnostic->delete();
+
+        return Redirect::to('diagnostics');
     }
 }

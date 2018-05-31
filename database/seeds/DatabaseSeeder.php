@@ -18,5 +18,6 @@ class DatabaseSeeder extends Seeder
         $this->call(ReferralsTableSeeder::class);
         $this->call(InterventionTypeTableSeeder::class);
         $this->call(InterventionTableSeeder::class);
+        $this->call(DiagnosticsTableSeeder::class);
     }
 }
