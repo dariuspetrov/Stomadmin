@@ -24,7 +24,7 @@
                                 @foreach($diagnostics as $diagnostic)
                                     <tr>
                                         <td><a href="{{ url('diagnostics').'/'.$diagnostic->diagnostic_id }}">{{$diagnostic->diagnostic_id}}</a></td>
-                                        <td>{{ $diagnostic->id }}</td>
+                                      <td>{{ $diagnostic->id }}</td>
                                         <td>{{ $diagnostic->name }}</td>
 
                                         <td><form method="POST" action="/diagnostics/{{ $diagnostic->diagnostic_id }}">
