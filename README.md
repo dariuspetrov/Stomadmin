@@ -18,3 +18,9 @@ After installing, in order to populate the users table, run the following comman
 ``php artisan migrate --seed``
 
 ## Permissions
+
+## Demo
+
+You can try our app at the following address:
+
+https://erdt.ddns.net
