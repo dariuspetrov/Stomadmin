@@ -16,6 +16,7 @@ Ioan Samuilă\\
 Departamentul de Informatică\\
 Facultatea de Matematică și Informatică\\
 Universitatea de Vest din Timișoara}
+\date{}
 
 \begin{document}
 
@@ -47,6 +48,7 @@ Principalele tehnologiile folosite în procesul de dezvoltare sunt:
 \item Bootstrap 4
 \item Laravel 5.x
 \item MySQL
+\item Git (github.com)
 \end{itemize}
 
 Accesarea datelor se face cu ajutorul unui browser web și permite diferite niveluri de acces. În principal vorbim de următoarele tipuri de conturi:
@@ -58,28 +60,39 @@ Accesarea datelor se face cu ajutorul unui browser web și permite diferite nive
 \item Pacient
 \end{itemize} 
 
-\section{Functionalității}
+Funcționalitățile aplicației pot fi testate la adresa: \url{https://erdt.ddns.net} , unde se află o varianta demo a proiectului ce conține un set de utilizatori și inregistrări fictive.
 
-Principalele funcționalității sunt:
-\begin{itemize}
-\item Grupuri de utilizatori după cum urmează:
+În capitolele ce urmează va fi prezentat mai pe larg felul în care utilizatorii menționați mai sus interacționează cu sistemul.
+
+\section{Funcționalități}
+
+Pentru accesarea panoului prorpriu de control utilizatorul trebuie să introduca un nume de utilizator și o parolă. În funcție de credențialele introduse, sistemul recunoaște tipul de utilizator care a accesat sistemul și îi oferă acces către funcțiile predefinite specifice ale acestuia.
+
+Pentru o imagine cât mai completa asupra sistemului, în figura~\ref{fig:home} este prezentată interfața ce se afieșază in cazul conectării cu un cont de administrator.  
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=5in]{home}
+\caption{Interfața utilizatorului}
+\label{fig:home}
+\end{figure}
+
+\section{Tipuri de utilizatori}
+
+Așa cum am menționat și anterior grupurile de utilizatori care sunt predefiniți în aplicație sunt împărțiți în următoarele categorii:
 \begin{itemize}
 \item Administrator
 \item Medic Specialist
 \item Secretară
 \item Pacient
 \end{itemize}
-\item Sistem de magement al fluxului de pacienți
-\end{itemize}
 
 \subsection{Administrator}
 
-Administratorul are control deplin asupra sistemului.
-
-Drepturile administratorilor:
+Administratorul are control deplin asupra sistemului. Aadar adminstratorul(sau administratorii,  în funcție de solicitare) sitemului are(au) următoarele drepturi:
 
 \begin{itemize}
-\item  poate să creeze conturi de doctor și secretară;
+\item  poate să creeze conturi de doctor, secretară și pacient;
 \item poate modifica tarifele consultațiilor și intervențiilor pentru pacienți;
 \item poate să vadă bilanțul încasăriilor pe cabinet cât și pe doctor și să genereze diferite statistici.
 \item poate adăuga, șterge sau bloca utilizatori.
@@ -87,54 +100,37 @@ Drepturile administratorilor:
 
 \subsection{Medic Specialist}
 
-Următoarele specificații:
+Medicul specialist are drepturi de editare și vizualizare a datelor, astfel el poate opera următoarele modificări:
 
 \begin{itemize}
-\item 1
-\item 2
-\item 3
-\item 4
-\item 5
-\item 6
+\item vede ce pacient are programat în ziua respectiva și completează foaia de consult;
+\item poate sa facă trimitere către spital, laborator și radiologie;
+\item poate sa elibereze o scrisoare medicala către medicul de familie în care sa precizeze diagnosticul și investgiația despre pacient cât și medicamentele prescrise;
+\item la finalul consultului bifează tipurile de intervenții făcute;
 \end{itemize}
 
 \subsection{Secretara}
 
-Următoarele specificații:
+Secretara de asemena este un utilizator cu drepturi atât de scriere căt și de citire. Prin urmare acest tip de utilizator poate manipula următoarele date:
 
 \begin{itemize}
-\item 1
-\item 2
-\item 3
-\item 4
-\item 5
-\item 6
+\item programează pacientul la un doctor și îl înregistrează la cabinet;
+\item poate sa anuleze programarea unui pacient sau sa o modifice pe alta data;
+\item poate să vadă consultul pacientului și trimiterile către laborator, spital și radiologie, cât și biletul de plata;
+\item  si poate să imprime toata fisa pacientului sau o parte cat si biletul de plata.
+\item poate sa faca contabilitatea pe doctor/ doctori atat pe zi cat si pe luna si an.
 \end{itemize}
 
 \subsection{Pacient}
 
-Următoarele specificații:
+Acest tip de cont este un tip de cont simplu care nu are drepturi de modificare asupra sistemului ci doar de vizualizare. Accesul în sistem se face pe baza unui nume de utilizator și a unei parole.
 
-\begin{itemize}
-\item 1
-\item 2
-\item 3
-\item 4
-\item 5
-\item 6
-\end{itemize}
+Pacientul are acces la rezultate, la interpretarea lor şi la recomandările medicului.
 
 \section{Concluzii}
 
-Aspecte:
+Aplicația Stomadmin se adresează în principal cabinetelor de dimensiune mică însă este dezvoltată modular astfel încât permite modificarea ulterioară prin adăugarea de noi module în funcție de necesitățile utilizatorului.
 
-\begin{itemize}
-\item 1
-\item 2
-\item 3
-\item 4
-\item 5
-\item 6
-\end{itemize}
+În cazul unei solicitări se pot modifica drepturile de acces, se pot adăuga tipuri de utilizatori noi cu drepturi de acces noi. Acest lucru însă se poate realiza doar la nivel de modificare al codului, nu din interfață utilizator.
 
 \end{document}
