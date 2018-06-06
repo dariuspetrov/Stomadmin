@@ -25,6 +25,8 @@ Route::get('/admin', 'AdminController@showAdminPanel')->name('admincontrolpannel
 Route::get('/secretary', 'SecretaryController@showSecretaryPanel')->name('secretarycontrolpanel');
 Route::get('/doctor', 'DoctorController@showDoctorPanel')->name('doctorcontrolpanel');
 Route::get('/user', 'UserController@showUserPanel');
+Route::get('/userappointments/{id}', 'UserController@showAppointments');
+Route::get('/userinterventions/{id}', 'UserController@showInterventions');
 
 Route::resource('/users', 'UserController');
 Route::resource('/medicalunits', 'MedicalUnitController');

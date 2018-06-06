@@ -29,7 +29,7 @@ class MedicineTableSeeder extends Seeder
 
         DB::table('medicines')->insert([
             'name' => 'Brotalex',
-        ]);    
+        ]);
 
         DB::table('medicines')->insert([
             'name' => 'Antinosol',
@@ -102,10 +102,5 @@ class MedicineTableSeeder extends Seeder
         DB::table('medicines')->insert([
             'name' => 'Dentocorb',
         ]);
-
-
 	}
-
-
-
 }

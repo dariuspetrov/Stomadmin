@@ -75,11 +75,15 @@ class User extends Authenticatable
             return false;
     }
 
-    public function appointemntAsPacient(){
+    public function appointmentAsPacient(){
         return Appointment::where('pacient_id', $this->id);
     }
 
     public function appointmentAsDoctor(){
         return Appointment::where('doctor_id', $this->id);
+    }
+
+    public function interventions(){
+        return $this->hasMany('Stomadmin\Intervention','pacient_id');
     }
 }

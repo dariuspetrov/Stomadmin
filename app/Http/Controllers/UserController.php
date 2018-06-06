@@ -6,6 +6,7 @@ use Stomadmin\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Input;
+use Auth;
 use Session;
 use Redirect;
 use Validator;
@@ -191,5 +192,51 @@ class UserController extends Controller
         catch (\Exception $e) {
             return view('errors.userappointed');
         }
+    }
+
+    public function showAppointments($id){
+        if(Gate::allows('show-appointment', [$id,Auth::User()->id])){
+            $user = User::find($id);
+
+            return $user->appointmentAsPacient()->get();
+        }
+        else{
+            return response()->view('errors.403');
+        }
+    }
+
+    public function showInterventions($id){
+        if(Gate::allows('show-intervention', [$id,Auth::User()->id])){
+            $user = User::find($id);
+
+            $interventions = $user->interventions()->get();
+
+            foreach($interventions as $intervention){
+                $intervention->type;
+            }
+
+            $data = [
+                'interventions' => $interventions,
+                'total' => UserController::getTotalInvoice($id)
+            ];
+
+            return view('user.interventions')->with($data);
+        }
+        else{
+            return response()->view('errors.403');
+        }
+    }
+
+    public function getTotalInvoice($id){
+        $user = User::find($id);
+        $total = 0;
+
+        $interventions = $user->interventions()->get();
+
+        foreach($interventions as $intervention){
+            $total += $intervention->type->price;
+        }
+
+        return $total;
     }
 }
