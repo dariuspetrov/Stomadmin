@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Carbon\Carbon;
 
 class InvoicesTableSeeder extends Seeder
 {
@@ -11,6 +12,10 @@ class InvoicesTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+        DB::table('invoices')->insert([
+            'doctor_id' => 4,
+            'pacient_id' => 7,
+            'consultpaper_id' => 2,
+        ]);
     }
 }

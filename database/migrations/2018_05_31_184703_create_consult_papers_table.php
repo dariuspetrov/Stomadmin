@@ -18,7 +18,6 @@ class CreateConsultPapersTable extends Migration
             $table->integer('doctor_id')->unsigned();
             $table->integer('pacient_id')->unsigned();
             $table->integer('diagnostic_id')->unsigned();
-            $table->integer('medicine_id')->unsigned();
             $table->string('medicine');
             $table->date('date');
             $table->timestamps();
