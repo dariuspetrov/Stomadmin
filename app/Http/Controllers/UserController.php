@@ -198,7 +198,13 @@ class UserController extends Controller
         if(Gate::allows('show-appointment', [$id,Auth::User()->id])){
             $user = User::find($id);
 
-            return $user->appointmentAsPacient()->get();
+            $appointments = $user->appointmentAsPacient()->get();
+
+            foreach($appointments as $appointment){
+                $appointment->doctor;
+            }
+
+            return view('user.appointments')->with('appointments', $appointments);
         }
         else{
             return response()->view('errors.403');
