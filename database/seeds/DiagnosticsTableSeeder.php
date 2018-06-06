@@ -12,7 +12,7 @@ class DiagnosticsTableSeeder extends Seeder
     public function run()
     {
         DB::table('diagnostics')->insert([
-            'name' => 'Carie dentară',
+            'name' => 'Carie dentară superficială',
         ]);
 
         DB::table('diagnostics')->insert([
@@ -29,6 +29,30 @@ class DiagnosticsTableSeeder extends Seeder
 
         DB::table('diagnostics')->insert([
             'name' => 'Abscess dentar',
+        ]);
+
+	DB::table('diagnostics')->insert([
+            'name' => 'Carie dentară profundă',
+        ]);
+
+	DB::table('diagnostics')->insert([
+            'name' => 'Abscess dentar',
+        ]);
+	
+	 DB::table('diagnostics')->insert([
+            'name' => 'Fisură superficială',
+        ]);
+
+	 DB::table('diagnostics')->insert([
+            'name' => 'Fisură profundă',
+        ]);
+
+	 DB::table('diagnostics')->insert([
+            'name' => 'Fractură perete lateral',
+        ]);
+
+	 DB::table('diagnostics')->insert([
+            'name' => 'Fractură perete frontal',
         ]);
     }
 }

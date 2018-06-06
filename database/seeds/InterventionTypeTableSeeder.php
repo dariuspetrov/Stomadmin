@@ -55,5 +55,50 @@ class InterventionTypeTableSeeder extends Seeder
             'name' => 'Tratament antibiotic în canal',
             'price' => '30'
         ]);
+
+        DB::table('intervention_types')->insert([
+            'name' => 'Extracție incisiv',
+            'price' => '60'
+        ]);
+
+        DB::table('intervention_types')->insert([
+            'name' => 'Extracție premolar',
+            'price' => '80'
+        ]);
+
+        DB::table('intervention_types')->insert([
+            'name' => 'Extracție molar',
+            'price' => '90'
+        ]);
+
+        DB::table('intervention_types')->insert([
+            'name' => 'Opturație profundă',
+            'price' => '50'
+        ]);
+
+        DB::table('intervention_types')->insert([
+            'name' => 'Opturație canal',
+            'price' => '80'
+        ]);
+
+        DB::table('intervention_types')->insert([
+            'name' => 'Tratament fisură',
+            'price' => '40'
+        ]);
+
+        DB::table('intervention_types')->insert([
+            'name' => 'Amprentă coroană',
+            'price' => '20'
+        ]);
+
+        DB::table('intervention_types')->insert([
+            'name' => 'Lipire coroană',
+            'price' => '15'
+        ]);
+
+        DB::table('intervention_types')->insert([
+            'name' => 'Tratament paragingival',
+            'price' => '35'
+        ]);
     }
 }
