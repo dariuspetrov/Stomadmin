@@ -121,5 +121,15 @@ class UsersTableSeeder extends Seeder
             'role' => 0,
             'password' => bcrypt('password')
         ]);
+
+        DB::table('users')->insert([
+            'name' => 'Aurelian Pop',
+            'email' => 'aurelian.pop@stomadmin.com',
+            'cnp' => '1540923357622',
+            'address' => 'Ioan Slavici Nr. 91',
+            'birthdate' => Carbon::createFromFormat('Y-m-d','1954-09-23'),
+            'role' => 0,
+            'password' => bcrypt('password')
+        ]);
     }
 }

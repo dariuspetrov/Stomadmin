@@ -25,5 +25,33 @@ class ReferralsTableSeeder extends Seeder
             'unit_id' => 1,
             'date' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
+
+        DB::table('referrals')->insert([
+            'pacient_id' => 6,
+            'doctor_id' => 2,
+            'unit_id' => 2,
+            'date' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+
+        DB::table('referrals')->insert([
+            'pacient_id' => 7,
+            'doctor_id' => 3,
+            'unit_id' => 2,
+            'date' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+
+        DB::table('referrals')->insert([
+            'pacient_id' => 10,
+            'doctor_id' => 4,
+            'unit_id' => 2,
+            'date' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+
+        DB::table('referrals')->insert([
+            'pacient_id' => 9,
+            'doctor_id' => 3,
+            'unit_id' => 1,
+            'date' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
     }
 }

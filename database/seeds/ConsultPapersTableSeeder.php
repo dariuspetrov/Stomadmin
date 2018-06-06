@@ -29,5 +29,23 @@ class ConsultPapersTableSeeder extends Seeder
             'medicine' => 'Dentolax',
             'date' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
+
+        DB::table('consult_papers')->insert([
+            'paper_id' => 3,
+            'doctor_id' => 4,
+            'pacient_id' => 10,
+            'diagnostic_id' => 4,
+            'medicine' => 'Dentolax',
+            'date' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+
+        DB::table('consult_papers')->insert([
+            'paper_id' => 4,
+            'doctor_id' => 5,
+            'pacient_id' => 9,
+            'diagnostic_id' => 3,
+            'medicine' => 'Ampicilină',
+            'date' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
     }
 }
