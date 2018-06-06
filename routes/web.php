@@ -34,3 +34,5 @@ Route::resource('/appointments', 'AppointmentController');
 Route::resource('/referrals', 'ReferralController');
 Route::resource('/interventions', 'InterventionController');
 Route::resource('/diagnostics', 'DiagnosticController');
+
+Route::get('/payment/process', 'PaymentsController@process')->name('payment.process');
